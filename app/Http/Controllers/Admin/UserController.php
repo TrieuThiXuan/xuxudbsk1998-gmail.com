@@ -83,13 +83,13 @@ class UserController extends Controller
     public function update(UpdateUser $request, $id)
     {
       $data = $request->all();
-        if(isset($data['password'])) {
-            $data['password'] = Hash::make($data['password']);
-        } else {
+      if(isset($data['password'])) {
+          $data['password'] = Hash::make($data['password']);
+      } else {
           unset($data['password']);
-        }
-        User::findOrFail($id)->update($data);
-        return redirect()->route('users.index', $data)->with('success', __('message.update.success'));
+      }
+      User::findOrFail($id)->update($data);
+      return redirect()->route('users.index')->with('success', __('message.update.success'));
     }
 
     /**

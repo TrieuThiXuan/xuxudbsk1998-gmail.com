@@ -5,7 +5,7 @@
         <div class="card-header">
             <h3 class="card-title">
                 <i class="fas fa-chart-pie mr-1"></i>
-                Cập nh người dùng
+                Cập nhật người dùng
             </h3>
         </div>
         <div class="card-body">

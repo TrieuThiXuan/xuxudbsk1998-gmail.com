@@ -26,7 +26,6 @@ class UpdateUser extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|unique:users,email,'.$this->user,
-            'password' => 'required|min:8',
             'birthday' => 'required|date',
             'gender' => 'required',
             'phone' => 'required',
