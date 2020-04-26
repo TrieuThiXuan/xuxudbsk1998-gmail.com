@@ -56,7 +56,10 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = [
+            'user' => User::findOrFail($id),
+        ];
+        return view('admin.users.show', $data);
     }
 
     /**
