@@ -19,7 +19,10 @@ class Promotion extends Model
         'category_id',
         'vendor_id',
     ];
-
+    CONST STATUS = [
+        0 => 'chờ duyệt',
+        1 => 'đã duyệt'
+    ];
     public function promotionImages()
     {
         $this->hasMany(PromotionImage::class);
@@ -27,7 +30,7 @@ class Promotion extends Model
 
     public function category()
     {
-        $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function vendor()

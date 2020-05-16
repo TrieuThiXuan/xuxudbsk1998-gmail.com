@@ -9,4 +9,9 @@ class Category extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function promotions()
+    {
+        return $this->hasMany(Promotion::class);
+    }
 }
