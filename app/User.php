@@ -26,6 +26,16 @@ class User extends Authenticatable
         'role'
     ];
 
+    CONST ROLE = [
+        0 => 'Admin',
+        1 => 'Người dùng',
+        2 => 'Người cung cấp'
+    ];
+
+    CONST GENDER = [
+        0 => 'Nam',
+        1 => 'Nữ',
+    ];
     /**
      * The attributes that should be hidden for arrays.
      *

@@ -3,7 +3,9 @@
 /public/storage
 /public/css
 /public/js
+/public/fonts
 /.idea/
+.idea/
 /storage/*.key
 /vendor
 .env
