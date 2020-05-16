@@ -111,7 +111,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="pages/widgets.html" class="nav-link">
+                        <a href="{{ route('promotions.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Chương trình khuyến mãi
