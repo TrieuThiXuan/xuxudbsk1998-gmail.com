@@ -128,6 +128,21 @@
         <div class="col-2">
              <p>Giới thiệu</p>
         </div>
+        <div class="col-2">
+            <p>Quy chế hoạt động</p>
+        </div>
+        <div class="col-2">
+            <p>Chính sách bảo mật</p>
+        </div>
+        <div class="col-2">
+            <p>Điều kiện và điều khoản</p>
+        </div>
+        <div class="col-2">
+            <p>Quy chế quản lý</p>
+        </div>
+        <div class="col-2">
+            <p>Trợ giúp</p>
+        </div>
     </div>
 </footer>
 </body>
