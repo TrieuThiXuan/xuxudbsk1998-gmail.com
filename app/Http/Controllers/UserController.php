@@ -1,15 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Category;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreCategory;
-use App\Http\Requests\UpdateCategory;
-use App\Promotion;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +15,9 @@ class CategoryController extends Controller
     public function index()
     {
         $data = [
-            'categories' => Category::all(),
+            'categories' => Category::all()
         ];
-        return view('admin.categories.index', $data);
+        return view('web.home.home', $data);
     }
 
     /**
@@ -31,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        //
     }
 
     /**
@@ -40,15 +36,9 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCategory $request)
+    public function store(Request $request)
     {
-        $data = $request->all();
-        $imageName = uniqid() . '.' . request()->image->getClientOriginalExtension();
-        request()->image->storeAs('public/images', $imageName);
-        $imageName = 'storage/images/' . $imageName;
-        $data['image'] = $imageName;
-        Category::Create($data);
-        return redirect()->route('categories.index');
+        //
     }
 
     /**
@@ -70,11 +60,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $data = [
-            'category' => Category::findOrFail($id),
-        ];
-        return view('admin.categories.edit', $data);
+        //
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -82,11 +70,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCategory $request, $id)
+    public function update(Request $request, $id)
     {
-        $data = $request->all();
-        Category::findOrFail($id)->update($data);
-        return redirect()->route('categories.index');
+        //
     }
 
     /**
@@ -97,8 +83,6 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $data = Category::findOrFail($id);
-        $data->delete();
-        return redirect()->route('categories.index');
+        //
     }
 }

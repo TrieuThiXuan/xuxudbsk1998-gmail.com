@@ -24,6 +24,7 @@
                 <tr>
                     <th scope="col">{{ __('STT') }}</th>
                     <th scope="col">{{ __('Tên thể loại')}}</th>
+                    <th scope="col">{{ __('Ảnh đại diện')}}</th>
                     <th scope="col">{{ __('Hành động') }}</th>
                 </tr>
                 </thead>
@@ -32,6 +33,9 @@
                     <tr>
                         <th scope="row">{{ $category->id }}</th>
                         <td>{{ $category->name }}</td>
+                        <td>
+                            <img src="{{ asset("$category->image") }}" class="w-100">
+                        </td>
                         <td class="d-flex flex-row">
                             <a class="btn btn-success mr-2" href="{{ route('categories.edit', $category->id) }}">Sửa</a>
                             <form action="{{ route('categories.destroy', $category->id) }}" method="POST">

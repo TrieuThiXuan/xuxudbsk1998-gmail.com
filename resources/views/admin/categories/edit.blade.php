@@ -19,6 +19,13 @@
                     <strong class="text-danger"> {{ $message }}</strong>
                     @enderror
                 </div>
+                <div class="form-group">
+                    <lable>Ảnh đại diện</lable>
+                    <input type="file" name="image" placeholder="Ảnh đại diện" class="form-control" value="{{ old('image', $category->image) }}">
+                    @error('image')
+                    <strong class="text-danger"> {{ $message }}</strong>
+                    @enderror
+                </div>
                 <button class="btn btn-success" type="submit">Cập nhật</button>
             </form>
         </div>

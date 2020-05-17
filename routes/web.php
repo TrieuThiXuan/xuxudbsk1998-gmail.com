@@ -25,3 +25,4 @@ Route::prefix('admin')->group(function () {
         Route::resource('promotions', 'PromotionController');
     });
 });
+Route::get('index', 'UserController@index');

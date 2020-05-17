@@ -24,7 +24,8 @@ class StoreCategory extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required'
+            'name' => 'required',
+            'image' => 'nullable|mimes:jpeg,jpg,png,gif|max:10240'
         ];
     }
 }

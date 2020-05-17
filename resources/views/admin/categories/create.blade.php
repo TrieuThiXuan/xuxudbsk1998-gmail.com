@@ -9,12 +9,19 @@
             </h3>
         </div>
         <div class="card-body">
-            <form action="{{ route('categories.store') }}" method="POST">
+            <form action="{{ route('categories.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <lable>Tên thể loại</lable>
                     <input type="text" name="name" placeholder="Tên thể loại" class="form-control" value="{{ old('name') }}">
                     @error('name')
+                    <strong class="text-danger"> {{ $message }}</strong>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <lable>Ảnh đại diện</lable>
+                    <input type="file" name="image" placeholder="Ảnh đại diện" class="form-control" value="{{ old('image') }}">
+                    @error('image')
                     <strong class="text-danger"> {{ $message }}</strong>
                     @enderror
                 </div>
