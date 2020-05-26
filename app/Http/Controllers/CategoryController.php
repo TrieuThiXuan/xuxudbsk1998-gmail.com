@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Promotion;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,10 @@ class UserController extends Controller
     public function index()
     {
         $data = [
+            'promotions' => Promotion::all(),
             'categories' => Category::all()
         ];
-        return view('web.home.home', $data);
+        return view('web.home.category', $data);
     }
 
     /**
@@ -49,7 +51,10 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = [
+            'promotion' => Promotion::findOrFail($id)
+        ];
+        return view('web.home.show', $data);
     }
 
     /**
@@ -84,10 +89,5 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function optionRegister()
-    {
-        return view('web.home.option_register');
     }
 }

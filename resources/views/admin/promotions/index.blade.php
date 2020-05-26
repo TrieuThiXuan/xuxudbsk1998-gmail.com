@@ -48,7 +48,7 @@
                                 @if($key == $promotion->status) {{ $value }} @else '' @endif
                             @endforeach
                         </td>
-                        <td><img src="{{ asset("$promotion->image") }}"></td>
+                        <td><img src="{{ asset("$promotion->image") }}" class="w-100"></td>
                         <td class="d-flex flex-row">
                             <a class="btn btn-success mr-2" href="{{ route('users.edit', $promotion->id) }}">Sửa</a>
                             <form action="{{ route('users.destroy', $promotion->id) }}" method="POST">
@@ -64,3 +64,4 @@
         </div>
     </div>
 @endsection
+
