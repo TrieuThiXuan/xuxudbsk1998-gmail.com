@@ -20,21 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f231b008-69f6-40f8-93c0-74fba3fea3fd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/sass/index.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/modals/login.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/modals/register.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/modals/vendor_register.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/web/home/category.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/web/home/option_register.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/web/home/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/web/layouts/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Promote.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Promote.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/promotions/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/promotions/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/web/home/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/home/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +33,9 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution />
+    <execution>
+      <executable path="composer" />
+    </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -138,6 +130,17 @@
       <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
       <path value="$PROJECT_DIR$/vendor/almasaeed2010/adminlte" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/vendor/phpseclib/phpseclib" />
+      <path value="$PROJECT_DIR$/vendor/google/apiclient-services" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/google/auth" />
+      <path value="$PROJECT_DIR$/vendor/google/apiclient" />
     </include_path>
   </component>
   <component name="ProjectId" id="1a865BgOYgSMCi9drMBGCgRbErn" />
@@ -150,7 +153,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../httv/httv-web-cms" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="standardjs.codestyle.accepted" value="true" />
   </component>
@@ -189,7 +192,9 @@
       <workItem from="1589683298033" duration="1034000" />
       <workItem from="1589980817797" duration="4643000" />
       <workItem from="1590066777110" duration="7603000" />
-      <workItem from="1590156522742" duration="29655000" />
+      <workItem from="1590156522742" duration="31938000" />
+      <workItem from="1590567355320" duration="11837000" />
+      <workItem from="1590608445928" duration="754000" />
     </task>
     <servers />
   </component>
@@ -206,20 +211,26 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="449" y="154" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1589618602694">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="449" y="154" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1299.741@67.27.1299.741" timestamp="1589618602694" />
+    <state x="452" y="312" width="523" height="178" key="ComposerInitDialogKey" timestamp="1590606799381">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state x="452" y="312" width="523" height="178" key="ComposerInitDialogKey/72.27.1294.741@72.27.1294.741" timestamp="1590606799381" />
     <state x="354" y="175" width="719" height="452" key="EditFileWatcherDialog" timestamp="1590158743678">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="354" y="175" width="719" height="452" key="EditFileWatcherDialog/72.27.1294.741@72.27.1294.741" timestamp="1590158743678" />
-    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1587397090513">
-      <screen x="67" y="27" width="1299" height="741" />
+    <state x="502" y="154" width="424" height="491" key="FileChooserDialogImpl" timestamp="1590608614964">
+      <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1587397090513" />
+    <state x="502" y="154" width="424" height="491" key="FileChooserDialogImpl/72.27.1294.741@72.27.1294.741" timestamp="1590608614964" />
     <state width="1253" height="175" key="GridCell.Tab.0.bottom" timestamp="1586796452194">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
@@ -244,10 +255,10 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1586797213309" />
-    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1590230542235">
+    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1590585762373">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="379" y="89" width="672" height="678" key="search.everywhere.popup/67.27.1299.741@67.27.1299.741" timestamp="1589619847398" />
-    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup/72.27.1294.741@72.27.1294.741" timestamp="1590230542235" />
+    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup/72.27.1294.741@72.27.1294.741" timestamp="1590585762373" />
   </component>
 </project>

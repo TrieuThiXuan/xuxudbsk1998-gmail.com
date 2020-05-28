@@ -29,3 +29,5 @@ Route::get('index', 'UserController@index');
 Route::get('category', 'CategoryController@index')->name('category');
 Route::get('show-promotion/{promotion}', 'CategoryController@show')->name('promotion.show');
 Route::get('option-register', 'UserController@optionRegister')->name('optionRegister');
+Route::post('register_portal', 'UserController@registerPortal')->name('register_portal');
+Route::post('login_portal', 'UserController@loginPortal')->name('login_portal');

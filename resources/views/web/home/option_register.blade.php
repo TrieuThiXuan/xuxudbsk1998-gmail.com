@@ -16,12 +16,59 @@
     </div>
     @include('modals.register')
     @include('modals.vendor_register')
+    <input type="hidden" id="registerPortal" value="{{ route('register_portal') }}">
 @endsection
+@section('script')
 <script>
     function registerModal() {
-         $('#registerModal').modal('show');
-    }
+        $('#registerModal').modal('show');
+
+    };
     function vendorRegisterModal() {
-          $('#vendorRegisterModal').modal('show');
+        $('#vendorRegisterModal').modal('show');
     }
+    $(document).ready(function () {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        function registerUser()
+        {
+            let email = $('#emailRegister').val();
+            let password = $('#passwordRegister').val();
+            let passwordConfirm = $('#passwordConfirmRegister').val();
+            let birthday = $('#birthdayRegister').val();
+            let phone = $('#phoneRegister').val();
+            let address = $('#addressRegister').val();
+            let gender = $('#genderRegister').val();
+            console.log($('#emailRegister').val());
+            $.ajax({
+                url: $('#registerPortal').val(),
+                type: 'POST',
+                data: {
+                    email: email,
+                    password: password,
+                    passwordConfirm: passwordConfirm,
+                    birthday: birthday,
+                    phone: phone,
+                    address: address,
+                    gender: gender
+                },
+                success: function (data) {
+                    if (data.status === true) {
+                        $('#registerModal').modal('hide');
+                        $('#activeAccount').modal('show');
+                    }
+                },
+                error: function (response) {
+                    $('#registerModal').modal('hide');
+                    $('#modalErrorSendEmail .message').text(response.responseJSON.errors.email);
+                    $('#modalErrorSendEmail').modal('show');
+                }
+            });
+        }
+        window.registerUser = registerUser;
+    })
 </script>
+@endsection

@@ -26,10 +26,15 @@ class User extends Authenticatable
         'role'
     ];
 
+    CONST NORMAL = 1;
+    const ADMIN = 0;
+    CONST VENDOR = 2;
+    CONST IN_ACTIVE = 2;
+    CONST ACTIVE = 1;
     CONST ROLE = [
-        0 => 'Admin',
-        1 => 'Người dùng',
-        2 => 'Người cung cấp'
+        self::ADMIN => 'Admin',
+        self::NORMAL => 'Người dùng',
+        self::VENDOR => 'Người cung cấp'
     ];
 
     CONST GENDER = [

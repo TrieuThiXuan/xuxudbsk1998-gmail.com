@@ -27,12 +27,16 @@
         <div class="logo col-6"><img src="#"></div>
         <div class="login-box col-6">
             <div class="d-flex flex-row offset-2">
+                @guest()
                 <div class="login">
                     <a href="#" onclick="loginModal()" data-toggle="modal">
                         Đăng nhập</a>
                 </div>
                 <span class="mx-2">|</span>
                 <div><a href="{{ route('optionRegister') }}">Đăng ký</a></div>
+                @else
+                    <p>{{ \Illuminate\Support\Facades\Auth::user()->name }}</p>
+                @endguest
             </div>
         </div>
     </div>
@@ -97,10 +101,52 @@
     </div>
 </footer>
 @include('modals.login')
+<input type="hidden" id="loginPortal" route="{{ route('login_portal') }}">
+<script type="text/javascript" src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
 <script>
      function loginModal() {
          $('#loginModal').modal('show');
     }
+    $(document).ready(function () {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        function loginUser() {
+            let email = $('#emailLogin').val();
+            let password = $('#passwordLogin').val();
+            $.ajax({
+                url: $('#loginPortal').val(),
+                type: 'POST',
+                data: {
+                    email: email,
+                    password: password,
+                },
+                success: function (data) {
+                    if (data.status === true) {
+                        location.reload();
+                    } else {
+                        $('#loginModal').modal('hide');
+                        let $modal = $('#modalErrorSendEmail');
+                        if (data.error_status) {
+                            $modal = $('#inActiveAccount');
+                            $modal.find('.httv-resend-mail-active').attr('data-href', data.resend_active_mail_href)
+                        }
+                        $modal.find('.message').text(data.message);
+                        $modal.modal('show');
+                    }
+                },
+                error: function (error) {
+                    $('#loginModal').modal('hide');
+                    $('#modalErrorSendEmail .message').text(MESSAGE.error_global);
+                    $('#modalErrorSendEmail').modal('show');
+                }
+            });
+        }
+        window.loginUser = loginUser;
+    });
 </script>
+@yield('script')
 </body>
 </html>
