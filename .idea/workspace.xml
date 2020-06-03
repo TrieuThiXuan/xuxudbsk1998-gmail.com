@@ -23,8 +23,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/Promote.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Promote.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/credentials.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/web/home/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/home/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/web/layouts/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/layouts/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,6 +144,7 @@
       <path value="$PROJECT_DIR$/vendor/psr/cache" />
       <path value="$PROJECT_DIR$/vendor/google/auth" />
       <path value="$PROJECT_DIR$/vendor/google/apiclient" />
+      <path value="$PROJECT_DIR$/vendor/laravel/helpers" />
     </include_path>
   </component>
   <component name="ProjectId" id="1a865BgOYgSMCi9drMBGCgRbErn" />
@@ -153,7 +157,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../httv/httv-web-cms" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="standardjs.codestyle.accepted" value="true" />
   </component>
@@ -195,6 +199,8 @@
       <workItem from="1590156522742" duration="31938000" />
       <workItem from="1590567355320" duration="11837000" />
       <workItem from="1590608445928" duration="754000" />
+      <workItem from="1590626302577" duration="12838000" />
+      <workItem from="1590824131082" duration="13930000" />
     </task>
     <servers />
   </component>
@@ -214,14 +220,19 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="449" y="154" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1589618602694">
-      <screen x="67" y="27" width="1299" height="741" />
+    <state x="453" y="154" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1590637761823">
+      <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="449" y="154" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1299.741@67.27.1299.741" timestamp="1589618602694" />
+    <state x="453" y="154" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/72.27.1294.741@72.27.1294.741" timestamp="1590637761823" />
     <state x="452" y="312" width="523" height="178" key="ComposerInitDialogKey" timestamp="1590606799381">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="452" y="312" width="523" height="178" key="ComposerInitDialogKey/72.27.1294.741@72.27.1294.741" timestamp="1590606799381" />
+    <state x="172" y="127" width="1094" height="541" key="DiffContextDialog" timestamp="1590639489590">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state x="172" y="127" width="1094" height="541" key="DiffContextDialog/72.27.1294.741@72.27.1294.741" timestamp="1590639489590" />
     <state x="354" y="175" width="719" height="452" key="EditFileWatcherDialog" timestamp="1590158743678">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
@@ -255,10 +266,14 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1586797213309" />
-    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1590585762373">
+    <state x="410" y="107" width="618" height="580" key="find.popup" timestamp="1590635288938">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state x="410" y="107" width="618" height="580" key="find.popup/72.27.1294.741@72.27.1294.741" timestamp="1590635288938" />
+    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1591002525430">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="379" y="89" width="672" height="678" key="search.everywhere.popup/67.27.1299.741@67.27.1299.741" timestamp="1589619847398" />
-    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup/72.27.1294.741@72.27.1294.741" timestamp="1590585762373" />
+    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup/72.27.1294.741@72.27.1294.741" timestamp="1591002525430" />
   </component>
 </project>

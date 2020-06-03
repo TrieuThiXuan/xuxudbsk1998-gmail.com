@@ -12,9 +12,72 @@
                     <p>{{$promotion->began_at}}</p>
                     <p>{{$promotion->finished_at}}</p>
                     <button class="btn btn-warning">Yêu thích</button>
-                    <button class="btn btn-info">Nhận thông báo</button>
+                    <button class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Nhận thông báo</button>
                 </div>
             </div>
         </div>
     </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form action="{{ route('store_calendar') }}" method="POST" id="storeCalender">
+                        @csrf
+                        <div>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <input type="text" placeholder="Thêm tiêu đề" class="form-control" name="title">
+                        <div>
+                            <i class="fa fa-user-clock"></i>
+                            <input type="date" class="form-control" name="time">
+                        </div>
+                        <input type="hidden" value="{{ $promotion->name }}" name="name">
+                        <input type="hidden" value="{{ \Illuminate\Support\Facades\Auth::user()->email }}" name="email">
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Lưu</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" value="{{ $promotion->name }}" name="name">
+    <input type="hidden" value="{{ \Illuminate\Support\Facades\Auth::user()->email ?  \Illuminate\Support\Facades\Auth::user()->email : ''}}" name="email">
 @endsection
+<script>
+    $('#storeCalender').submit(function () {
+        let name = $('input[name=name]').val();
+        let email = $('input[name=email]').val();
+        $.ajax({
+            url: {{ route('store_calendar') }},
+            type: 'POST',
+            data: {
+                name: name,
+                email: email,
+            },
+            success: function (data) {
+                if (data.status === true) {
+                    location.reload();
+                } else {
+                    $('#loginModal').modal('hide');
+                    let $modal = $('#modalErrorSendEmail');
+                    if (data.error_status) {
+                        $modal = $('#inActiveAccount');
+                        $modal.find('.httv-resend-mail-active').attr('data-href', data.resend_active_mail_href)
+                    }
+                    $modal.find('.message').text(data.message);
+                    $modal.modal('show');
+                }
+            },
+            error: function (error) {
+                alert(error);
+                $('#loginModal').modal('hide');
+                $('#modalErrorSendEmail .message').text(MESSAGE.error_global);
+                $('#modalErrorSendEmail').modal('show');
+            }
+        });
+    });
+</script>

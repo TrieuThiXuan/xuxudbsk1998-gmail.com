@@ -36,6 +36,15 @@
                 <div><a href="{{ route('optionRegister') }}">Đăng ký</a></div>
                 @else
                     <p>{{ \Illuminate\Support\Facades\Auth::user()->name }}</p>
+                    <span class="text-white font-header ellipsis">Logout</span>
+                    <a class="text-white align-self-center ellipsis" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();　document.getElementById('logout-form').submit();">
+                        {{ __('Thoát') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout_portal') }}" method="POST"
+                          style="display: none;">
+                        @csrf
+                    </form>
                 @endguest
             </div>
         </div>
@@ -101,7 +110,7 @@
     </div>
 </footer>
 @include('modals.login')
-<input type="hidden" id="loginPortal" route="{{ route('login_portal') }}">
+<input type="hidden" id="loginPortal" value="{{ route('login_portal') }}">
 <script type="text/javascript" src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
 <script>
      function loginModal() {
@@ -116,6 +125,7 @@
         function loginUser() {
             let email = $('#emailLogin').val();
             let password = $('#passwordLogin').val();
+            console.log($('#loginPortal').val())
             $.ajax({
                 url: $('#loginPortal').val(),
                 type: 'POST',
@@ -138,6 +148,7 @@
                     }
                 },
                 error: function (error) {
+                    alert(error);
                     $('#loginModal').modal('hide');
                     $('#modalErrorSendEmail .message').text(MESSAGE.error_global);
                     $('#modalErrorSendEmail').modal('show');

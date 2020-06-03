@@ -68,4 +68,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(FavoritePromotion::class);
     }
+
+    public function googleAccounts()
+    {
+        return $this->hasMany(GoogleAccount::class);
+    }
 }

@@ -135,4 +135,9 @@ class UserController extends Controller
             'error_status' => false,
         ]);
     }
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('index');
+    }
 }
