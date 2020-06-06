@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('welcome');
 });
 
 Auth::routes();
@@ -33,3 +33,7 @@ Route::post('register_portal', 'UserController@registerPortal')->name('register_
 Route::post('login_portal', 'UserController@loginPortal')->name('login_portal');
 Route::post('logout_portal', 'UserController@logout')->name('logout_portal');
 Route::post('store_calendar', 'googleCalendarController@store')->name('store_calendar');
+
+Route::resource('gcalendar', 'gCalendarController');
+Route::post('gcalendar', 'gCalendarController@store')->name('cla_store');
+Route::get('oauth', ['as' => 'oauthCallback', 'uses' => 'gCalendarController@oauth']);

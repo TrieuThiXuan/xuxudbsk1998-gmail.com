@@ -21,7 +21,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                    <form action="{{ route('store_calendar') }}" method="POST" id="storeCalender">
+                    <form action="{{ route('cla_store') }}" method="POST" id="storeCalender">
                         @csrf
                         <div>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -52,7 +52,7 @@
         let name = $('input[name=name]').val();
         let email = $('input[name=email]').val();
         $.ajax({
-            url: {{ route('store_calendar') }},
+            url: {{ route('cla_store') }},
             type: 'POST',
             data: {
                 name: name,

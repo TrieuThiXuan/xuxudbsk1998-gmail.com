@@ -56,6 +56,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
+        session_destroy();
         $data = [
             'user' => User::findOrFail($id),
         ];

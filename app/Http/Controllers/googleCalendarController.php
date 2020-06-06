@@ -45,45 +45,45 @@ class googleCalendarController extends Controller
     public function store(Request $request, Google $google)
     {
 //        dd($request->email);
-//        $calendarService = new Google_Service_Calendar($this->client);
-//
-//        $event = new \Google_Service_Calendar_Event([
-//            'summary' => $request->title,
-//            'description' => 'jhjhjh',
-//            'start' => [
-//                'dateTime' => '2020-06-01T04:09:29+00:00'
-//            ],
-//            'end' => [
-//                'dateTime' => '2020-06-04T04:09:29+00:00'
-//            ],
-//
-//        ]);
-//        $calendarService->events->insert('xuxudbsk1998@gmail.com', $event);
-        if (! $request->has('code')) {
-            return redirect($google->createAuthUrl());
-        }
+        $calendarService = new Google_Service_Calendar($this->client);
 
-        // Use the given code to authenticate the user.
-        $google->authenticate($request->get('code'));
-
-        // Make a call to the Google+ API to get more information on the account.
-        $account = $google->service('Plus')->people->get('me');
-
-        auth()->user()->googleAccounts()->updateOrCreate(
-            [
-                // Map the account's id to the `google_id`.
-                'google_id' => $account->id,
+        $event = new \Google_Service_Calendar_Event([
+            'summary' => $request->title,
+            'description' => 'jhjhjh',
+            'start' => [
+                'dateTime' => '2020-06-06T04:09:29+00:00'
             ],
-            [
-                // Use the first email address as the Google account's name.
-                'name' => head($account->emails)->value,
+            'end' => [
+                'dateTime' => '2020-06-08T04:09:29+00:00'
+            ],
 
-                // Last but not least, save the access token for later use.
-                'token' => $google->getAccessToken(),
-            ]
-        );
-
-        return redirect()->route('index');
+        ]);
+        $calendarService->events->insert('xuanttbk@gmail.com', $event);
+//        if (! $request->has('code')) {
+//            return redirect($google->createAuthUrl());
+//        }
+//
+//        // Use the given code to authenticate the user.
+//        $google->authenticate($request->get('code'));
+//dd($google->authenticate($request->get('code')));
+//        // Make a call to the Google+ API to get more information on the account.
+//        $account = $google->service('Plus')->people->get('me');
+//
+//        auth()->user()->googleAccounts()->updateOrCreate(
+//            [
+//                // Map the account's id to the `google_id`.
+//                'google_id' => $account->id,
+//            ],
+//            [
+//                // Use the first email address as the Google account's name.
+//                'name' => head($account->emails)->value,
+//
+//                // Last but not least, save the access token for later use.
+//                'token' => $google->getAccessToken(),
+//            ]
+//        );
+//
+//        return redirect()->route('index');
     }
     private function getAttendees($emails)
     {
