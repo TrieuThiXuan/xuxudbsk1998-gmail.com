@@ -4,11 +4,75 @@
 
 .img-box {
     p {
-        background: blue;
+        background: #3aad92;
         text-align: center;
     }
 }
 
 .h-240 {
     height: 240px;
+}
+
+.h-50 {
+    height: 50px !important;
+}
+
+body {
+    font-size: 18px;
+}
+
+header {
+    background-color: #3aad92;
+}
+
+.login-box {
+    a {
+        color: white;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+.color-white {
+    color: white;
+}
+
+.color-3aad92 {
+    color:  #3aad92;
+}
+
+.slider {
+    background-color: #3aad92;
+}
+
+.menu {
+    a {
+        color: #3aad92;
+    }
+}
+
+.navbar-light .navbar-nav .active > .nav-link {
+    color: #3aad92;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #3aad92;
+}
+
+.font-20 {
+    font-size: 20px;
+}
+
+.b-3aad92 {
+    background-color: #3aad92;
+}
+
+.category-title {
+    &:hover {
+        color: white;
+        text-decoration: none;
+    }
 }

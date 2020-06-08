@@ -22,38 +22,45 @@
     <link href="{{ asset('css/index.css') }}" rel="stylesheet">
 </head>
 <body>
-<div class="nav-bar">
-    <div class="row">
-        <div class="logo col-6"><img src="#"></div>
-        <div class="login-box col-6">
-            <div class="d-flex flex-row offset-2">
-                @guest()
-                <div class="login">
-                    <a href="#" onclick="loginModal()" data-toggle="modal">
-                        Đăng nhập</a>
+<header>
+    <div class="container">
+        <div class="nav-bar py-2">
+            <div class="row">
+                <div class="logo col-6">
+                    <div class="w-25">
+                        <img src="{{ asset('storage/images/Photo-0072.jpg') }}" class="w-100 h-50">
+                    </div>
                 </div>
-                <span class="mx-2">|</span>
-                <div><a href="{{ route('optionRegister') }}">Đăng ký</a></div>
-                @else
-                    <p>{{ \Illuminate\Support\Facades\Auth::user()->name }}</p>
-                    <span class="text-white font-header ellipsis">Logout</span>
-                    <a class="text-white align-self-center ellipsis" href="{{ route('logout') }}"
-                       onclick="event.preventDefault();　document.getElementById('logout-form').submit();">
-                        {{ __('Thoát') }}
-                    </a>
-                    <form id="logout-form" action="{{ route('logout_portal') }}" method="POST"
-                          style="display: none;">
-                        @csrf
-                    </form>
-                @endguest
+                <div class="login-box col-6">
+                    <div class="d-flex flex-row offset-2">
+                        @guest()
+                            <div class="login">
+                                <a href="#" onclick="loginModal()" data-toggle="modal">
+                                    Đăng nhập</a>
+                            </div>
+                            <span class="mx-2 color-white">|</span>
+                            <div><a href="{{ route('optionRegister') }}">Đăng ký</a></div>
+                        @else
+                            <p>{{ \Illuminate\Support\Facades\Auth::user()->name }}</p>
+                            <span class="text-black-50 font-header ellipsis">Logout</span>
+                            <a class="text-black-50 align-self-center ellipsis" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();　document.getElementById('logout-form').submit();">
+                                {{ __('Thoát') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout_portal') }}" method="POST"
+                                  style="display: none;">
+                                @csrf
+                            </form>
+                        @endguest
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="menu">
+</header>
+<div class="menu color-3aad92">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Trang chủ</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -70,15 +77,79 @@
                         <a class="nav-link" href="#">Đối tác</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+
             </div>
         </nav>
     </div>
 </div>
-@yield('content')
+<div class="slider">
+    <div class="container">
+{{--        <div class="slider d-flex align-items-center justify-content-center">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-12">--}}
+{{--                    <input class="" placeholder="Tìm kiếm">--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-4">--}}
+{{--                    <select class="form-control">--}}
+{{--                        <option value="1">Thể loại</option>--}}
+{{--                        <option value="1">1</option>--}}
+{{--                    </select>--}}
+{{--                </div>--}}
+{{--                <div class="col-4">--}}
+{{--                    <select class="form-control">--}}
+{{--                        <option value="1">Ví điện tử</option>--}}
+{{--                        <option value="1">Thẻ ngân hàng</option>--}}
+{{--                    </select>--}}
+{{--                </div>--}}
+{{--                <div class="col-4">--}}
+{{--                    <select class="form-control">--}}
+{{--                        <option value="1">Địa điểm</option>--}}
+{{--                        <option value="1">1</option>--}}
+{{--                    </select>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+        <div class="slider d-flex flex-column align-items-center justify-content-center">
+            <div class="input-search mb-4">
+                <div class="row">
+                    <div class="col-12">
+                        <input name="search" class="form-control" placeholder="Tìm kiếm">
+                    </div>
+                </div>
+            </div>
+            <div class="mutil-input-search">
+                 <div class="row">
+                     <div class="col-4">
+                         <select class="form-control">
+                             <option value="1">Thể loại</option>
+                             <option class="1">1</option>
+                         </select>
+                     </div>
+                     <div class="col-4">
+                         <select class="form-control">
+                             <option value="1">Ví điện tử</option>
+                             <option class="2">Thẻ ngân hàng</option>
+                         </select>
+                     </div>
+                     <div class="col-4">
+                         <select class="form-control">
+                             <option value="1">Địa điểm</option>
+                             <option class="1">Hà Nội</option>
+                             <option class="1">Hồ Chí Minh</option>
+                         </select>
+                     </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="container">
+        @yield('content')
+    </div>
+</div>
 <footer>
     <div class="container">
         <div class="row">
