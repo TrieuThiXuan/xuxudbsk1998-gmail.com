@@ -20,7 +20,7 @@ class UserTableSeeder extends Seeder
             'gender' => 1,
             'phone' => '0349778772',
             'address' => 'ktx b10 DHBKHN',
-            'role' => '1',
+            'role' => '0',
             'status' => '1',
         ]);
     }
