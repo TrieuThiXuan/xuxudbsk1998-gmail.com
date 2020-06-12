@@ -96,6 +96,11 @@ class UserController extends Controller
         return view('web.home.option_register');
     }
 
+    public function optionLogin()
+    {
+        return view('web.home.option_login');
+    }
+
     public function registerPortal(Request $request)
     {
         $user = User::create([
@@ -116,6 +121,22 @@ class UserController extends Controller
         ]);
     }
 
+    public function vendorRegisterPortal(Request $request)
+    {
+        $user = User::create([
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => User::VENDOR,
+            'name' => $request->email,
+            'status' => User::IN_ACTIVE,
+        ]);
+//        dd($user);
+//        Mail::to($request->email)->send(new ActiveUserMail($user));
+        return response()->json([
+            'status' => true,
+            'message' => trans('message.user_register.success'),
+        ]);
+    }
     function loginPortal(Request $request)
     {
         $credentials = $request->only('email', 'password');
@@ -123,6 +144,26 @@ class UserController extends Controller
             ['email' => $credentials['email'],
                 'password' => $credentials['password'],
                 ]
+        )) {
+            return response()->json([
+                'status' => true,
+                'message' => trans('message.login.success'),
+            ]);
+        }
+        return response()->json([
+            'status' => false,
+            'message' => trans('message.login.error_password'),
+            'error_status' => false,
+        ]);
+    }
+    function vendorLoginPortal(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt(
+            ['email' => $credentials['email'],
+                'password' => $credentials['password'],
+                'role' => 2,
+            ]
         )) {
             return response()->json([
                 'status' => true,

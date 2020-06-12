@@ -1,22 +1,15 @@
 @extends('web.layouts.header')
 @section('content')
-    <div class="container">
-        <div class="content">
-            <div class="row">
-                <div class="col-12">
-                    <div>
-                        <a href="#" class="btn btn-info" onclick="vendorRegisterModal()" data-toggle="modal">
-                            Người cung cấp đăng ký</a>
-                        <a href="#" class="btn btn-info" onclick="registerModal()" data-toggle="modal">
-                            Người dùng đăng ký</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="h-240 d-flex justify-content-center align-items-center">
+    <a href="#" class="btn btn-info mr-5" onclick="vendorRegisterModal()" data-toggle="modal">
+        Người cung cấp đăng ký</a>
+    <a href="#" class="btn btn-info" onclick="registerModal()" data-toggle="modal">
+        Người dùng đăng ký</a>
     </div>
     @include('modals.register')
     @include('modals.vendor_register')
     <input type="hidden" id="registerPortal" value="{{ route('register_portal') }}">
+    <input type="hidden" id="vendorRegisterPortal" value="{{ route('vendor_register_portal') }}">
 @endsection
 @section('script')
 <script>
@@ -42,7 +35,6 @@
             let phone = $('#phoneRegister').val();
             let address = $('#addressRegister').val();
             let gender = $('#genderRegister').val();
-            console.log($('#emailRegister').val());
             $.ajax({
                 url: $('#registerPortal').val(),
                 type: 'POST',
@@ -68,7 +60,34 @@
                 }
             });
         }
+        function vendorRegisterUser()
+        {
+            let email = $('#vendorEmailRegister').val();
+            let password = $('#vendorPasswordRegister').val();
+            let passwordConfirm = $('#vendorConfirmPasswordRegister').val();
+            console.log($('#vendorRegisterPortal').val())
+            $.ajax({
+                url: $('#vendorRegisterPortal').val(),
+                type: 'POST',
+                data: {
+                    email: email,
+                    password: password,
+                    passwordConfirm: passwordConfirm,
+                },
+                success: function (data) {
+                    if (data.status === true) {
+                        $('#vendorRegisterModal').modal('hide');
+                        $('#activeAccount').modal('show');
+                    }
+                },
+                error: function (response) {
+                    $('#registerModal').modal('hide');
+                    $('#modalErrorSendEmail').modal('show');
+                }
+            });
+        }
         window.registerUser = registerUser;
+        window.vendorRegisterUser = vendorRegisterUser;
     })
 </script>
 @endsection

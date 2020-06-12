@@ -35,15 +35,15 @@
                     <div class="d-flex flex-row offset-2">
                         @guest()
                             <div class="login">
-                                <a href="#" onclick="loginModal()" data-toggle="modal">
+                                <a href="{{ route('optionLogin') }}">
                                     Đăng nhập</a>
                             </div>
                             <span class="mx-2 color-white">|</span>
                             <div><a href="{{ route('optionRegister') }}">Đăng ký</a></div>
                         @else
-                            <p>{{ \Illuminate\Support\Facades\Auth::user()->name }}</p>
-                            <span class="text-black-50 font-header ellipsis">Logout</span>
-                            <a class="text-black-50 align-self-center ellipsis" href="{{ route('logout') }}"
+                            <span class="align-self-center color-white">{{ \Illuminate\Support\Facades\Auth::user()->name }}</span>
+                            <span class="align-self-center font-header ellipsis color-white mx-2">|</span>
+                            <a class="align-self-center ellipsis" href="{{ route('logout') }}"
                                onclick="event.preventDefault();　document.getElementById('logout-form').submit();">
                                 {{ __('Thoát') }}
                             </a>
@@ -84,33 +84,6 @@
 </div>
 <div class="slider">
     <div class="container">
-{{--        <div class="slider d-flex align-items-center justify-content-center">--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-12">--}}
-{{--                    <input class="" placeholder="Tìm kiếm">--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-4">--}}
-{{--                    <select class="form-control">--}}
-{{--                        <option value="1">Thể loại</option>--}}
-{{--                        <option value="1">1</option>--}}
-{{--                    </select>--}}
-{{--                </div>--}}
-{{--                <div class="col-4">--}}
-{{--                    <select class="form-control">--}}
-{{--                        <option value="1">Ví điện tử</option>--}}
-{{--                        <option value="1">Thẻ ngân hàng</option>--}}
-{{--                    </select>--}}
-{{--                </div>--}}
-{{--                <div class="col-4">--}}
-{{--                    <select class="form-control">--}}
-{{--                        <option value="1">Địa điểm</option>--}}
-{{--                        <option value="1">1</option>--}}
-{{--                    </select>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
         <div class="slider d-flex flex-column align-items-center justify-content-center">
             <div class="input-search mb-4">
                 <div class="row">
@@ -151,84 +124,34 @@
     </div>
 </div>
 <footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-2">
-                <p>Giới thiệu</p>
-            </div>
-            <div class="col-2">
-                <p>Quy chế hoạt động</p>
-            </div>
-            <div class="col-2">
-                <p>Chính sách bảo mật</p>
-            </div>
-            <div class="col-2">
-                <p>Điều kiện và điều khoản</p>
-            </div>
-            <div class="col-2">
-                <p>Quy chế quản lý</p>
-            </div>
-            <div class="col-2">
-                <p>Trợ giúp</p>
-            </div>
+    <div class="row">
+        <div class="col-2">
+            <p class="font-12">Giới thiệu</p>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <p>xuanttbkhn
-                </p>
-            </div>
+        <div class="col-2">
+            <p class="font-12">Quy chế hoạt động</p>
+        </div>
+        <div class="col-2">
+            <p class="font-12">Chính sách bảo mật</p>
+        </div>
+        <div class="col-2">
+            <p class="font-12">Điều kiện và điều khoản</p>
+        </div>
+        <div class="col-2">
+            <p class="font-12">Quy chế quản lý</p>
+        </div>
+        <div class="col-2">
+            <p class="font-12">Trợ giúp</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <p>xuanttbkhn
+            </p>
         </div>
     </div>
 </footer>
-@include('modals.login')
-<input type="hidden" id="loginPortal" value="{{ route('login_portal') }}">
 <script type="text/javascript" src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
-<script>
-     function loginModal() {
-         $('#loginModal').modal('show');
-    }
-    $(document).ready(function () {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        function loginUser() {
-            let email = $('#emailLogin').val();
-            let password = $('#passwordLogin').val();
-            console.log($('#loginPortal').val())
-            $.ajax({
-                url: $('#loginPortal').val(),
-                type: 'POST',
-                data: {
-                    email: email,
-                    password: password,
-                },
-                success: function (data) {
-                    if (data.status === true) {
-                        location.reload();
-                    } else {
-                        $('#loginModal').modal('hide');
-                        let $modal = $('#modalErrorSendEmail');
-                        if (data.error_status) {
-                            $modal = $('#inActiveAccount');
-                            $modal.find('.httv-resend-mail-active').attr('data-href', data.resend_active_mail_href)
-                        }
-                        $modal.find('.message').text(data.message);
-                        $modal.modal('show');
-                    }
-                },
-                error: function (error) {
-                    alert(error);
-                    $('#loginModal').modal('hide');
-                    $('#modalErrorSendEmail .message').text(MESSAGE.error_global);
-                    $('#modalErrorSendEmail').modal('show');
-                }
-            });
-        }
-        window.loginUser = loginUser;
-    });
-</script>
 @yield('script')
 </body>
 </html>
