@@ -9,9 +9,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,6 +17,14 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin_index.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <script
+        src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"
+        integrity="sha256-DI6NdAhhFRnO2k51mumYeDShet3I8AKCQf/tf7ARNhI="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -29,7 +34,9 @@
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                <a class="nav-link" role="button" data-toggle="collapse" href="#collapseExample">
+                    <i class="fas fa-bars"></i>
+                </a>
             </li>
         </ul>
 
@@ -60,23 +67,22 @@
 
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <!-- Brand Logo -->
-        @auth()
-        <div class="text-center">
-             <span class="brand-text font-weight-light color-white">
-                {{ \Illuminate\Support\Facades\Auth::user()->name  }}
-            </span>
-        </div>
-        @endauth
         <!-- Sidebar -->
         <div class="sidebar">
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                </div>
+{{--                <div class="image">--}}
+{{--                    <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">--}}
+{{--                </div>--}}
                 <div class="info">
-                    <a href="#" class="d-block">Alexander Pierce</a>
+                    <a href="#" class="d-block">   @auth()
+                            <div class="text-center">
+             <span class="brand-text font-weight-light color-white">
+                {{ \Illuminate\Support\Facades\Auth::user()->name  }}
+            </span>
+                            </div>
+                        @endauth
+                    </a>
                 </div>
             </div>
 
@@ -150,6 +156,17 @@
     </aside>
     <!-- /.control-sidebar -->
 </div>
+<script>
+    $(document).ready(function () {
+        $('.datepicker').datepicker({
+            format: 'mm/dd/yyyy',
+        });
+        // $(document).on('click', '.pushmenu', function () {
+        //     $('.main-sidebar ').collapse();
+        // })
+    });
+</script>
+@yield('script')
 </body>
 </html>
 

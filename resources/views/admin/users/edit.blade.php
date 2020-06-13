@@ -20,13 +20,6 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <lable>Ngày sinh</lable>
-                    <input type="date" name="birthday" placeholder="Ngày sinh" class="form-control" value="{{ old('birthday', $user->birthday) }}">
-                    @error('birthday')
-                    <strong class="text-danger"> {{ $message }}</strong>
-                    @enderror
-                </div>
-                <div class="form-group">
                     <lable>Email</lable>
                     <input type="email" name="email" placeholder="Email" class="form-control" value="{{ old('email', $user->email) }}">
                     @error('email')
@@ -41,6 +34,13 @@
                         @endforeach
                     </select>
                     @error('gender')
+                    <strong class="text-danger"> {{ $message }}</strong>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <lable>Ngày sinh</lable>
+                    <input name="birthday" placeholder="Ngày sinh" class="form-control datepicker" value="{{ old('birthday', $user->birthday) }}">
+                    @error('birthday')
                     <strong class="text-danger"> {{ $message }}</strong>
                     @enderror
                 </div>

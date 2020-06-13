@@ -8,7 +8,6 @@ require('./bootstrap');
 
 require('admin-lte/dist/js/adminlte.min.js');
 
-window.Vue = require('vue');
 
 /**
  * The following block of code may be used to automatically register your

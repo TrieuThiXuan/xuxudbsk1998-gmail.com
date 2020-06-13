@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group">
                     <lable>Ngày sinh</lable>
-                    <input type="date" name="birthday" placeholder="Ngày sinh" class="form-control" value="{{ old('birthday') }}">
+                    <input name="birthday" placeholder="Ngày sinh" class="form-control datepicker" value="{{ old('birthday') }}">
                     @error('birthday')
                     <strong class="text-danger"> {{ $message }}</strong>
                     @enderror
@@ -80,3 +80,4 @@
         </div>
     </div>
 @endsection
+

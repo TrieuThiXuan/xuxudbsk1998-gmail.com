@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUser;
 use App\Http\Requests\UpdateUser;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -43,7 +44,9 @@ class UserController extends Controller
     public function store(StoreUser $request)
     {
         $data = $request->all();
+        $birthday = Carbon::parse($data['birthday']);
         $data['password'] = Hash::make($data['password']);
+        $data['birthday'] = $birthday->format('Y-m-d');
         User::Create($data);
         return redirect()->route('users.index')->with('success', __('message.create.success'));
     }
@@ -91,6 +94,12 @@ class UserController extends Controller
       } else {
           unset($data['password']);
       }
+        if(isset($data['birthday'])) {
+            $birthday = Carbon::parse($data['birthday']);
+            $data['birthday'] = $birthday->format('Y-m-d');
+        } else {
+            unset($data['birthday']);
+        }
       User::findOrFail($id)->update($data);
       return redirect()->route('users.index')->with('success', __('message.update.success'));
     }
