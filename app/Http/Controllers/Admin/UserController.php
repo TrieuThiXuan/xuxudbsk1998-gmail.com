@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateUser;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -17,6 +18,11 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('isNotAdmin')->except('logout');
+    }
+
     public function index()
     {
         $data = [
@@ -115,5 +121,11 @@ class UserController extends Controller
         $data = User::findOrFail($id);
         $data->delete();
         return redirect()->route('users.index')->with('success', __('message.destroy.success'));
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
     }
 }

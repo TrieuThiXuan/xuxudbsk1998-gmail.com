@@ -25,7 +25,7 @@
                 <tr>
                     <th scope="col">{{ __('STT') }}</th>
                     <th scope="col">{{ __('Tên chương trình') }}</th>
-                    <th scope="col">{{ __('Tóm tắt') }}</th>
+                    <th scope="col">{{ __('Nhà cung cấp') }}</th>
                     <th scope="col">{{ __('Thời gian bắt đầu') }}</th>
                     <th scope="col">{{ __('Thời gian kết thúc') }}</th>
                     <th scope="col">{{ __('Thể loại') }}</th>
@@ -39,13 +39,13 @@
                     <tr>
                         <th scope="row">{{ $promotion->id }}</th>
                         <td><a href="{{ route('users.show', $promotion->id) }}">{{ $promotion->name }}</a></td>
-                        <td>{{ $promotion->summary }}</td>
+                        <td>{{ $promotion->isVendor->name }}</td>
                         <td>{{ $promotion->began_at }}</td>
                         <td>{{ $promotion->finished_at }}</td>
                         <td>{{ $promotion->category->name }}</td>
                         <td>
                             @foreach(\App\Promotion::STATUS as $key => $value)
-                                @if($key == $promotion->status) {{ $value }} @else '' @endif
+                                {{$key == $promotion->status ?  $value : ''}}
                             @endforeach
                         </td>
                         <td><img src="{{ asset("$promotion->image") }}" class="w-100"></td>

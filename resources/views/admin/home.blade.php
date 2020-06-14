@@ -25,6 +25,7 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -43,23 +44,19 @@
         <!-- Right navbar links -->
         <div class="navbar-nav ml-auto">
             @auth
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }} <span class="caret"></span>
+                <div class="nav-item dropdown">
+                    <span>
+                        {{ Auth::user()->name }}
+                    </span>
+                    <a class="align-self-center ellipsis" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();　document.getElementById('logout-form').submit();">
+                        {{ __('Thoát') }}
                     </a>
-
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </div>
-                </li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                          style="display: none;">
+                        @csrf
+                    </form>
+                </div>
             @endauth
         </div>
     </nav>
@@ -166,6 +163,7 @@
         // })
     });
 </script>
+<script> CKEDITOR.replace('editor1'); </script>
 @yield('script')
 </body>
 </html>

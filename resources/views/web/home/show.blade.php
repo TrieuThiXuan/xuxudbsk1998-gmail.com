@@ -7,7 +7,7 @@
                 <p>{{ $promotion->created_at }}</p>
                 <p>{{ $promotion->summary }}</p>
                 <img src="{{ asset("$promotion->image") }}" class="w-100">
-                <p>{{ $promotion->content }}</p>
+                <p>{!!  $promotion->content !!}</p>
                 <p>{{$promotion->began_at}}</p>
                 <p>{{$promotion->finished_at}}</p>
                 <button class="btn btn-warning">Yêu thích</button>

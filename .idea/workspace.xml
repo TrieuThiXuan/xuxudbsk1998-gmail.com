@@ -21,12 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f231b008-69f6-40f8-93c0-74fba3fea3fd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/UpdateUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/UpdateUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/edit.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +203,8 @@
       <workItem from="1590626302577" duration="12838000" />
       <workItem from="1590824131082" duration="41229000" />
       <workItem from="1591407971388" duration="37665000" />
-      <workItem from="1591775573322" duration="33393000" />
+      <workItem from="1591775573322" duration="34851000" />
+      <workItem from="1592049826993" duration="276000" />
     </task>
     <servers />
   </component>
@@ -287,10 +282,10 @@
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="389" y="162" width="618" height="606" key="find.popup/72.27.1294.741@72.27.1294.741" timestamp="1592037900418" />
-    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1592039720599">
+    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1592049549095">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="379" y="89" width="672" height="678" key="search.everywhere.popup/67.27.1299.741@67.27.1299.741" timestamp="1589619847398" />
-    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup/72.27.1294.741@72.27.1294.741" timestamp="1592039720599" />
+    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup/72.27.1294.741@72.27.1294.741" timestamp="1592049549095" />
   </component>
 </project>

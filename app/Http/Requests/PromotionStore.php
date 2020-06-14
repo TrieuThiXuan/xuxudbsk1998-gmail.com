@@ -26,9 +26,9 @@ class PromotionStore extends FormRequest
         return [
             'name' => 'required',
             'summary' => 'required',
-            'content' => 'required',
+            'content' => 'nullable',
             'began_at' => 'date|required',
-            'finished_at' => 'date|required',
+            'finished_at' => 'date|required|after_or_equal:began_at',
             'image' => 'nullable|mimes:jpeg,jpg,png,gif|max:10240',
             'address' => 'required',
             'category_id' => 'required',

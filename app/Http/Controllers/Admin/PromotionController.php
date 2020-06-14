@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PromotionStore;
 use App\Promotion;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -52,7 +53,11 @@ class PromotionController extends Controller
         $imageName = uniqid() . '.' . request()->image->getClientOriginalExtension();
         request()->image->storeAs('public/images', $imageName);
         $imageName = 'storage/images/' . $imageName;
+        $began_at = Carbon::parse($data['began_at']);
+        $finished_at = Carbon::parse($data['finished_at']);
         $data['image'] = $imageName;
+        $data['began_at'] = $began_at->format('Y-m-d');
+        $data['finished_at'] = $finished_at->format('Y-m-d');
         Promotion::Create($data);
         return redirect()->route('promotions.index')->with('success', __('message.create.success'));
     }
@@ -97,6 +102,18 @@ class PromotionController extends Controller
             request()->image->storeAs('public/images', $imageName);
             $imageName = 'storage/images/' . $imageName;
             $data['image'] = $imageName;
+        }
+        if (isset($data['began_at'])) {
+            $began_at = Carbon::parse($data['began_at']);
+            $data['began_at'] = $began_at->format('Y-m-d');
+        } else {
+            unset($data['began_at']);
+        }
+        if (isset($data['finished_at'])) {
+            $finished_at = Carbon::parse($data['finished_at']);
+            $data['finished_at'] = $finished_at->format('Y-m-d');
+        } else {
+            unset($data['finished_at']);
         }
         Promotion::findOrFail($id)->update($data);
         return redirect()->route('promotions.index')->with('success', __('messages.update'));

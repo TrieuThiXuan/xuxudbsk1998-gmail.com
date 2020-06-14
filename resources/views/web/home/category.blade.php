@@ -21,7 +21,7 @@
                             <a href="{{ route('promotion.show', $promotion->id) }}">
                                 <h3>{{ $promotion->name }}</h3>
                             </a>
-                            <p>{{ $promotion->content }}</p>
+                            <p>{{ $promotion->summary }}</p>
                         </div>
                     </div>
                 @endforeach

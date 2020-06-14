@@ -19,10 +19,16 @@ class Promotion extends Model
         'category_id',
         'vendor_id',
     ];
+
+    CONST PENDING = 0;
+    CONST APPROVE = 1;
+    CONST PUBLISH = 2;
     CONST STATUS = [
-        0 => 'chờ duyệt',
-        1 => 'đã duyệt'
+        self::PENDING => 'Chờ duyệt',
+        self::APPROVE => 'Đã duyệt',
+        self::PUBLISH => 'Xuất bản'
     ];
+
     public function promotionImages()
     {
         $this->hasMany(PromotionImage::class);
@@ -33,8 +39,8 @@ class Promotion extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function vendor()
+    public function isVendor()
     {
-        $this->belongsTo(Vendor::class);
+        return $this->belongsTo(User::class, 'vendor_id');
     }
 }

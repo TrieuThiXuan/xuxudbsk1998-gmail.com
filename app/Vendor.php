@@ -14,8 +14,8 @@ class Vendor extends Model
         'phone',
     ];
 
-    public function promotions()
-    {
-        $this->hasMany(Promotion::class);
-    }
+//    public function promotions()
+//    {
+//        $this->hasMany(Promotion::class);
+//    }
 }

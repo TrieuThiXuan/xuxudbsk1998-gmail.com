@@ -23,6 +23,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('users', 'UserController');
         Route::resource('categories', 'CategoryController');
         Route::resource('promotions', 'PromotionController');
+        Route::post('logout', 'UserController@logout')->name('logout');
     });
 });
 Route::get('index', 'UserController@index')->name('index');

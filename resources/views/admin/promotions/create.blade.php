@@ -27,21 +27,23 @@
                 </div>
                 <div class="form-group">
                     <lable>Nội dung</lable>
-                    <input type="text" name="content" placeholder="Nội dung" class="form-control" value="{{ old('content') }}">
+                    <textarea  name="content" placeholder="Nội dung" class="form-control" id="editor1">
+                         {{ old('content') }}
+                    </textarea>
                     @error('content')
                     <strong class="text-danger"> {{ $message }}</strong>
                     @enderror
                 </div>
                 <div class="form-group">
                     <lable>Thời gian bắt đầu</lable>
-                    <input type="date" name="began_at" placeholder="Thời gian bắt đầu" class="form-control" value="{{ old('began_at') }}">
+                    <input name="began_at" placeholder="Thời gian bắt đầu" class="form-control datepicker" value="{{ old('began_at') }}">
                     @error('began_at')
                     <strong class="text-danger"> {{ $message }}</strong>
                     @enderror
                 </div>
                 <div class="form-group">
                     <lable>Thời gian kết thúc</lable>
-                    <input type="date" name="finished_at" placeholder="Thời gian kết thúc" class="form-control" value="{{ old('finished_at') }}">
+                    <input name="finished_at" placeholder="Thời gian kết thúc" class="form-control datepicker" value="{{ old('finished_at') }}">
                     @error('finished_at')
                     <strong class="text-danger"> {{ $message }}</strong>
                     @enderror
@@ -55,7 +57,7 @@
                 </div>
                 <div class="form-group">
                     <lable>Địa điểm</lable>
-                    <input type="text" name="address" placeholder="address" class="form-control" value="{{ old('address') }}">
+                    <input type="text" name="address" placeholder="Địa điểm" class="form-control" value="{{ old('address') }}">
                     @error('address')
                     <strong class="text-danger"> {{ $message }}</strong>
                     @enderror
@@ -81,6 +83,16 @@
                     @error('user_id')
                     <strong class="text-danger"> {{ $message }}</strong>
                     @enderror
+                </div>
+                <div class="form-group">
+                    <lable>Trạng thái bài đăng</lable>
+                    @foreach(\App\Promotion::STATUS as $key => $value)
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="status" value="{{ $key }}" {{ old('status') ==$key ? 'checked' : ''}}>{{ $value }}
+                        </label>
+                    </div>
+                    @endforeach
                 </div>
                 <button class="btn btn-success" type="submit">Thêm mới</button>
             </form>

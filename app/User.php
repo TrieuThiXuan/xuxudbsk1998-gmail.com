@@ -73,4 +73,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(GoogleAccount::class);
     }
+
+    public function isPromotions()
+    {
+        $this->hasMany(Promotion::class);
+    }
 }
