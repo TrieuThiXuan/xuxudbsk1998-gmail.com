@@ -31,7 +31,7 @@
                 <tbody>
                 @foreach($categories as $category)
                     <tr>
-                        <th scope="row">{{ $category->id }}</th>
+                        <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $category->name }}</td>
                         <td>
                             <img src="{{ asset("$category->image") }}" class="w-100">

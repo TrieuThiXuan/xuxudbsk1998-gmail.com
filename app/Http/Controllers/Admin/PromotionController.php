@@ -9,6 +9,7 @@ use App\Promotion;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class PromotionController extends Controller
@@ -21,8 +22,11 @@ class PromotionController extends Controller
     public function index()
     {
         $promotions = Promotion::all();
+        $promotions_vendor = Promotion::where('vendor_id', Auth::user()->id)->get();
+//        dd($promotions_vendor);
         $data = [
-            'promotions' =>  $promotions
+            'promotions' =>  $promotions,
+            'promotions_vendor' => $promotions_vendor,
         ];
        return view('admin.promotions.index', $data);
     }
@@ -83,8 +87,10 @@ class PromotionController extends Controller
     {
         $data = [
             'promotion' => Promotion::findOrFail($id),
+            'categories' => Category::all(),
+            'users' => User::all(),
         ];
-        return view('admin.promotion.edit', $data);
+        return view('admin.promotions.edit', $data);
     }
 
     /**

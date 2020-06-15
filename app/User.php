@@ -78,4 +78,8 @@ class User extends Authenticatable
     {
         $this->hasMany(Promotion::class);
     }
+    public function isAdmin()
+    {
+        return $this->role == self::ADMIN;
+    }
 }

@@ -20,15 +20,19 @@ class Promotion extends Model
         'vendor_id',
     ];
 
-    CONST PENDING = 0;
-    CONST APPROVE = 1;
-    CONST PUBLISH = 2;
+    CONST PENDING = 'c';
+    CONST APPROVE = 'a';
+    CONST PUBLISH = 'p';
     CONST STATUS = [
         self::PENDING => 'Chờ duyệt',
         self::APPROVE => 'Đã duyệt',
         self::PUBLISH => 'Xuất bản'
     ];
 
+    CONST OTHER_STATUS = [
+        self::PENDING => 'Chờ duyệt',
+        self::PUBLISH => 'Xuất bản'
+    ];
     public function promotionImages()
     {
         $this->hasMany(PromotionImage::class);

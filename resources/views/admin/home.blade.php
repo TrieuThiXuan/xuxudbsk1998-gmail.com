@@ -84,45 +84,7 @@
             </div>
 
             <!-- Sidebar Menu -->
-            <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <!-- Add icons to the links using the .nav-icon class
-                         with font-awesome or any other icon font library -->
-                    <li class="nav-item has-treeview menu-open">
-                        <a href="#" class="nav-link active">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Dashboard
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('promotions.index') }}" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Chương trình khuyến mãi
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item has-treeview">
-                        <a href="{{ route('categories.index') }}" class="nav-link">
-                            <i class="nav-icon fas fa-copy"></i>
-                            <p>
-                                Thể loại
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('users.index') }}" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Users
-                            </p>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+         @include('admin.layouts.sidebar')
             <!-- /.sidebar-menu -->
         </div>
         <!-- /.sidebar -->
@@ -140,7 +102,7 @@
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-        <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+        <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">Xuantt.io</a>.</strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
             <b>Version</b> 3.0.4
@@ -161,9 +123,16 @@
         // $(document).on('click', '.pushmenu', function () {
         //     $('.main-sidebar ').collapse();
         // })
+        let url = window.location;
+        $('.nav-item a').filter(function () {
+            return this.href == url;
+        }).addClass('active-bg');
+
     });
 </script>
-<script> CKEDITOR.replace('editor1'); </script>
+<script> CKEDITOR.replace('editor1');
+    CKEDITOR.replace('editor2');
+</script>
 @yield('script')
 </body>
 </html>

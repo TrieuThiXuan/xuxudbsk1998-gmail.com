@@ -26,7 +26,7 @@ class UserController extends Controller
     public function index()
     {
         $data = [
-            'users' => User::all()
+            'users' => User::where('role', '<>', User::VENDOR)->get()
         ];
         return view('admin.users.index', $data);
     }
@@ -127,5 +127,12 @@ class UserController extends Controller
     {
         Auth::logout();
         return redirect()->route('login');
+    }
+
+    public function userVendor() {
+        $data = [
+            'users' => User::where('role', User::VENDOR)->get()
+        ];
+        return view('admin.users.index', $data);
     }
 }

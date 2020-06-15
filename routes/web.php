@@ -24,6 +24,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('categories', 'CategoryController');
         Route::resource('promotions', 'PromotionController');
         Route::post('logout', 'UserController@logout')->name('logout');
+        Route::get('user-vendor','UserController@userVendor')->name('user_vendor');
     });
 });
 Route::get('index', 'UserController@index')->name('index');
