@@ -28,4 +28,13 @@ class StoreCategory extends FormRequest
             'image' => 'nullable|mimes:jpeg,jpg,png,gif|max:10240'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'name.required'  => 'Tên người dùng không được bỏ trống',
+            'image.mimes'  => 'Ảnh thuộc jpg, png, jpeg',
+            'image.max'  => 'Ảnh max 10240Kb',
+        ];
+    }
 }

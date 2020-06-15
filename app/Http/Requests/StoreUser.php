@@ -34,13 +34,25 @@ class StoreUser extends FormRequest
                 'min:8'
             ],
             'birthday' => [
-                'required',
+                'nullable',
                 'date'
             ],
-            'gender' => 'required',
-            'phone' => 'required',
-            'address' => 'required',
+            'gender' => 'nullable',
+            'phone' => 'nullable',
+            'address' => 'nullable',
             'role' => 'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'email.required' => 'Email không được bỏ trống',
+            'name.required'  => 'Tên người dùng không được bỏ trống',
+            'name.unique'  => 'Tên người dùng đã tồn tại',
+            'password.required'  => 'Mật khẩu không được bỏ trống',
+            'password.min'  => 'Mật khẩu ít nhất chứ 8 kí tự',
+            'birthday.date'  => 'Ngày sinh dạng ngày tháng',
         ];
     }
 }

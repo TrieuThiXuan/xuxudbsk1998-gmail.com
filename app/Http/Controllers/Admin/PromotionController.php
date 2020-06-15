@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PromotionStore;
+use App\Http\Requests\UpdatePromotion;
 use App\Promotion;
 use App\User;
 use Carbon\Carbon;
@@ -101,7 +102,7 @@ class PromotionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdatePromotion $request, $id)
     {
         $data = $request->all();
         if ($request->hasFile('image')) {

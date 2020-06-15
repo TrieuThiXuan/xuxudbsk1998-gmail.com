@@ -27,4 +27,11 @@ class UpdateCategory extends FormRequest
             'name' => 'required',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'name.required'  => 'Tên người dùng không được bỏ trống',
+        ];
+    }
 }

@@ -21,16 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f231b008-69f6-40f8-93c0-74fba3fea3fd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PromotionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PromotionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Promotion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Promotion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/admin_index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/admin_index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/categories/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/categories/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/promotions/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/promotions/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/PromotionStore.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/PromotionStore.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/StoreUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/StoreUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/UpdateUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/UpdateUser.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +208,7 @@
       <workItem from="1591407971388" duration="37665000" />
       <workItem from="1591775573322" duration="34851000" />
       <workItem from="1592049826993" duration="32890000" />
-      <workItem from="1592204819917" duration="19831000" />
+      <workItem from="1592204819917" duration="21184000" />
     </task>
     <servers />
   </component>
@@ -293,10 +286,10 @@
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="389" y="162" width="618" height="606" key="find.popup/72.27.1294.741@72.27.1294.741" timestamp="1592215195556" />
-    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1592262925961">
+    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1592263430028">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="379" y="89" width="672" height="678" key="search.everywhere.popup/67.27.1299.741@67.27.1299.741" timestamp="1589619847398" />
-    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup/72.27.1294.741@72.27.1294.741" timestamp="1592262925961" />
+    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup/72.27.1294.741@72.27.1294.741" timestamp="1592263430028" />
   </component>
 </project>
