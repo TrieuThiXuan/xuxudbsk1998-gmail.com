@@ -16,10 +16,10 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $data = [
-            'categories' => Category::all(),
+            'categories' => Category::SearchByName($request->searchName)->paginate(10),
         ];
         return view('admin.categories.index', $data);
     }

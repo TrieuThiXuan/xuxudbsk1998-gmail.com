@@ -3,13 +3,15 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">
-                <i class="fas fa-chart-pie mr-1"></i>
-                Danh sách khuyến mãi
-            </h3>
+            <div class="d-flex flex-column">
+                <h3 class="card-title">
+                    <i class="fas fa-chart-pie mr-1"></i>
+                    Danh sách khuyến mãi
+                </h3>
+                <span><a class="btn btn-info mb-2" href="{{ route('promotions.create') }}">Thêm mới</a></span>
+            </div>
         </div>
         <div class="card-body">
-            <span><a class="btn btn-info mb-2" href="{{ route('promotions.create') }}">Thêm mới</a></span>
             @if(session()->get('success'))
                 <div class="alert alert-success">
                     {{ session()->get('success') }}
@@ -20,6 +22,32 @@
                     {{ session()->get('alert') }}
                 </div><br/>
             @endif
+                <div class="input-search">
+                    <form action="{{ route('promotions.index') }}" method="GET">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6">
+                                <input type="search" placeholder="Tên chương trình" name="searchName" class="form-control">
+                            </div>
+                            <div class="col-md-3">
+                                <select class="form-control" name="searchCategory">
+                                    <option></option>
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select class="form-control" name="searchStatus">
+                                    <option></option>
+                                    @foreach(\App\Promotion::STATUS as $key => $value)
+                                        <option value="{{ $key }}">{{ $value }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <button class="btn btn-info" type="submit">Tìm kiếm</button>
+                        </div>
+                    </form>
+                </div>
             <table class="table">
                 <thead>
                 <tr>

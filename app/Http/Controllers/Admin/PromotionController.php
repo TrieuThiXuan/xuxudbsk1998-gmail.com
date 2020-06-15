@@ -8,6 +8,7 @@ use App\Http\Requests\PromotionStore;
 use App\Promotion;
 use App\User;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Scope;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -19,14 +20,14 @@ class PromotionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $promotions = Promotion::all();
-        $promotions_vendor = Promotion::where('vendor_id', Auth::user()->id)->get();
-//        dd($promotions_vendor);
+        $promotions = Promotion::SearchByName($request->searchName)->SearchByCategory($request->searchCategory)->SearchByStatus($request->searchStatus)->get();
+        $promotions_vendor = Promotion::SearchByName($request->searchName)->SearchByCategory($request->searchCategory)->SearchByStatus($request->searchStatus)->where('vendor_id', Auth::user()->id)->get();
         $data = [
             'promotions' =>  $promotions,
             'promotions_vendor' => $promotions_vendor,
+            'categories' => Category::all(),
         ];
        return view('admin.promotions.index', $data);
     }

@@ -3,13 +3,15 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">
-                <i class="fas fa-chart-pie mr-1"></i>
-                Danh sách người dùng
-            </h3>
+            <div class="d-flex flex-column">
+                <h3 class="card-title">
+                    <i class="fas fa-chart-pie mr-1"></i>
+                    Danh sách người dùng
+                </h3>
+                <span><a class="btn btn-info mb-2" href="{{ route('users.create') }}">Thêm mới</a></span>
+            </div>
         </div>
         <div class="card-body">
-            <span><a class="btn btn-info mb-2" href="{{ route('users.create') }}">Thêm mới</a></span>
             @if(session()->get('success'))
                 <div class="alert alert-success">
                     {{ session()->get('success') }}
@@ -20,6 +22,16 @@
                     {{ session()->get('alert') }}
                 </div><br/>
             @endif
+                <div class="input-search">
+                    <form action="{{ route('users.index') }}" method="GET">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <input type="search" class="form-control" placeholder="Tên người dùng" name="searchName">
+                            </div>
+                            <button class="btn-info btn" type="submit">Tìm kiếm</button>
+                        </div>
+                    </form>
+                </div>
             <table class="table">
                 <thead>
                 <tr>
@@ -57,6 +69,9 @@
                 @endforeach
                 </tbody>
             </table>
+                <div class="float-right mt-2">
+                    {{ $users->appends($_GET)->links() }}
+                </div>
         </div>
     </div>
 @endsection

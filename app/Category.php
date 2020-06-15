@@ -15,4 +15,12 @@ class Category extends Model
     {
         return $this->hasMany(Promotion::class);
     }
+
+    public function scopeSearchByName($query, $request)
+    {
+        if(isset($request)) {
+            $query->where('name', 'like', '%' . $request . '%');
+        }
+        return $query;
+    }
 }

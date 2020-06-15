@@ -82,4 +82,12 @@ class User extends Authenticatable
     {
         return $this->role == self::ADMIN;
     }
+
+    public function scopeSearchByName($query, $request)
+    {
+        if(isset($request)) {
+            $query->where('name', 'like', '%' . $request . '%');
+        }
+        return $query;
+    }
 }

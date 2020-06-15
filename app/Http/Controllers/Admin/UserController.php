@@ -23,10 +23,10 @@ class UserController extends Controller
         $this->middleware('isNotAdmin')->except('logout');
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $data = [
-            'users' => User::where('role', '<>', User::VENDOR)->get()
+            'users' => User::SearchByName($request->searchName)->where('role', '<>', User::VENDOR)->paginate(10)
         ];
         return view('admin.users.index', $data);
     }
@@ -129,9 +129,9 @@ class UserController extends Controller
         return redirect()->route('login');
     }
 
-    public function userVendor() {
+    public function userVendor(Request $request) {
         $data = [
-            'users' => User::where('role', User::VENDOR)->get()
+            'users' => User::SearchByName($request->searchName)->where('role', User::VENDOR)->paginate(10)
         ];
         return view('admin.users.index', $data);
     }

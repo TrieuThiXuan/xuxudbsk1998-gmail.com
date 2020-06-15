@@ -21,12 +21,16 @@
   <component name="ChangeListManager">
     <list default="true" id="f231b008-69f6-40f8-93c0-74fba3fea3fd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PromotionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PromotionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Promotion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Promotion.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/promotions/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/promotions/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/admin_index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/admin_index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/categories/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/categories/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/promotions/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/promotions/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +215,7 @@
       <workItem from="1591407971388" duration="37665000" />
       <workItem from="1591775573322" duration="34851000" />
       <workItem from="1592049826993" duration="32890000" />
-      <workItem from="1592204819917" duration="1054000" />
+      <workItem from="1592204819917" duration="19831000" />
     </task>
     <servers />
   </component>
@@ -252,11 +256,11 @@
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="354" y="175" width="719" height="452" key="EditFileWatcherDialog/72.27.1294.741@72.27.1294.741" timestamp="1590158743678" />
-    <state x="502" y="154" width="424" height="491" key="FileChooserDialogImpl" timestamp="1592127443126">
+    <state x="502" y="154" width="424" height="491" key="FileChooserDialogImpl" timestamp="1592209353716">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1587397090513" />
-    <state x="502" y="154" width="424" height="491" key="FileChooserDialogImpl/72.27.1294.741@72.27.1294.741" timestamp="1592127443126" />
+    <state x="502" y="154" width="424" height="491" key="FileChooserDialogImpl/72.27.1294.741@72.27.1294.741" timestamp="1592209353716" />
     <state width="1253" height="175" key="GridCell.Tab.0.bottom" timestamp="1586796452194">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
@@ -277,22 +281,22 @@
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="361" y="117" width="705" height="568" key="NewPhpClassDialog/72.27.1294.741@72.27.1294.741" timestamp="1591107676947" />
-    <state x="514" y="323" width="399" height="156" key="NewPhpFileDialog" timestamp="1592051794713">
+    <state x="514" y="323" width="399" height="156" key="NewPhpFileDialog" timestamp="1592209843111">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="514" y="323" width="399" height="156" key="NewPhpFileDialog/72.27.1294.741@72.27.1294.741" timestamp="1592051794713" />
+    <state x="514" y="323" width="399" height="156" key="NewPhpFileDialog/72.27.1294.741@72.27.1294.741" timestamp="1592209843111" />
     <state x="372" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1586797213309">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1586797213309" />
-    <state x="389" y="162" width="618" height="606" key="find.popup" timestamp="1592058702073">
+    <state x="389" y="162" width="618" height="606" key="find.popup" timestamp="1592215195556">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="389" y="162" width="618" height="606" key="find.popup/72.27.1294.741@72.27.1294.741" timestamp="1592058702073" />
-    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1592174070022">
+    <state x="389" y="162" width="618" height="606" key="find.popup/72.27.1294.741@72.27.1294.741" timestamp="1592215195556" />
+    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1592262925961">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="379" y="89" width="672" height="678" key="search.everywhere.popup/67.27.1299.741@67.27.1299.741" timestamp="1589619847398" />
-    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup/72.27.1294.741@72.27.1294.741" timestamp="1592174070022" />
+    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup/72.27.1294.741@72.27.1294.741" timestamp="1592262925961" />
   </component>
 </project>

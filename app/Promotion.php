@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Scope;
 
 class Promotion extends Model
 {
@@ -46,5 +47,27 @@ class Promotion extends Model
     public function isVendor()
     {
         return $this->belongsTo(User::class, 'vendor_id');
+    }
+
+    public function scopeSearchByName($query, $request)
+    {
+        if(isset($request)) {
+            $query->where('name', 'like', '%' . $request . '%');
+        }
+        return $query;
+    }
+
+    public function scopeSearchByCategory($query, $request)
+    {
+        if(isset($request)) {
+            return $query->where('category_id', $request);
+        }
+    }
+
+    public function scopeSearchByStatus($query, $request)
+    {
+        if(isset($request)) {
+            return $query->where('status', $request);
+        }
     }
 }
