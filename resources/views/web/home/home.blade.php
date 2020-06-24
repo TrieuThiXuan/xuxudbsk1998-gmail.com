@@ -10,7 +10,7 @@
             @foreach($categories as $category)
                 <div class="col-4">
                     <div class="img-box">
-                        <a href="{{ route('category') }}" class="text-decoration-none"><img src="{{ $category->image }}" class="w-100 h-240">
+                        <a href="{{ route('category.show', $category->id) }}" class="text-decoration-none"><img src="{{ $category->image }}" class="w-100 h-240">
                             <p class="text-white">{{ $category->name }}</p>
                         </a>
                     </div>

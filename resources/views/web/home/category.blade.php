@@ -8,7 +8,9 @@
                     Danh mục
                 </a>
                 @foreach($categories as $category)
-                    <a href="#" class="list-group-item list-group-item-action color-3aad92">{{ $category->name }}</a>
+                    <div class="aaa">
+                        <a href="{{ route('category.show', $category->id) }}" class="list-group-item list-group-item-action">{{ $category->name }}</a>
+                    </div>
                 @endforeach
             </div>
         </div>
@@ -17,7 +19,7 @@
                 @foreach($promotions as $promotion)
                     <div class="col-6">
                         <div class="article">
-                            <img src="{{ $promotion->image }}" class="w-100">
+                            <img src="{{ asset($promotion->image) }}" class="w-100">
                             <a href="{{ route('promotion.show', $promotion->id) }}">
                                 <h3>{{ $promotion->name }}</h3>
                             </a>
@@ -30,3 +32,14 @@
     </div>
 </div>
 @endsection
+@section('script')
+    <script>
+     $(document).ready(function () {
+         let url = window.location;
+         console.log(url)
+         $('.aaa a').filter(function () {
+             return this.href == url;
+         }).css("background-color", "#3aad92");
+     });
+    </script>
+@endsection()

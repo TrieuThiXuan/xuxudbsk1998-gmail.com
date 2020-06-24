@@ -29,6 +29,7 @@ Route::prefix('admin')->group(function () {
 });
 Route::get('index', 'UserController@index')->name('index');
 Route::get('category', 'CategoryController@index')->name('category');
+Route::get('show-category/{id}', 'CategoryController@showCategory')->name('category.show');
 Route::get('show-promotion/{promotion}', 'CategoryController@show')->name('promotion.show');
 Route::get('option-register', 'UserController@optionRegister')->name('optionRegister');
 Route::get('option-login', 'UserController@optionLogin')->name('optionLogin');

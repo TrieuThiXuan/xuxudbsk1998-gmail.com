@@ -90,4 +90,13 @@ class CategoryController extends Controller
     {
         //
     }
+
+    public function showCategory($id)
+    {
+        $data = [
+            'promotions' => Promotion::where('category_id', $id)->get(),
+            'categories' => Category::all()
+        ];
+        return view('web.home.category', $data);
+    }
 }
