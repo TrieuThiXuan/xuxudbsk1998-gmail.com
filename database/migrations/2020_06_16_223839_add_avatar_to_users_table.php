@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePromoteImagesTable extends Migration
+class AddAvatarToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreatePromoteImagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('promote_images', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->integer('promotion_id');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('avatar',255)->nullable();
         });
     }
 
@@ -28,6 +25,8 @@ class CreatePromoteImagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('promote_images');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('avatar', 255)->nullable();
+        });
     }
 }

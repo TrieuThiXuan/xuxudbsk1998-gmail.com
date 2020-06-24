@@ -58,8 +58,8 @@
                 });
             }
             function vendorLoginUser() {
-                let email = $('#emailLogin').val();
-                let password = $('#passwordLogin').val();
+                let email = $('#emailVendorLogin').val();
+                let password = $('#passwordVendorLogin').val();
                 $.ajax({
                     url: $('#vendorLoginPortal').val(),
                     type: 'POST',
@@ -83,9 +83,9 @@
                     },
                     error: function (error) {
                         alert(error);
-                        $('#loginModal').modal('hide');
-                        $('#modalErrorSendEmail .message').text(MESSAGE.error_global);
-                        $('#modalErrorSendEmail').modal('show');
+                        // $('#loginModal').modal('hide');
+                        // $('#modalErrorSendEmail .message').text(MESSAGE.error_global);
+                        // $('#modalErrorSendEmail').modal('show');
                     }
                 });
             }

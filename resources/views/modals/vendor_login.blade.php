@@ -12,7 +12,7 @@
                     <div class="form-group">
                         <label class="col-form-label">Email:</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" name="email" placeholder="Nhập email" id="emailLogin">
+                            <input type="text" class="form-control" name="email" placeholder="Nhập email" id="emailVendorLogin">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-envelope"></span>
@@ -26,7 +26,7 @@
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Mật khẩu:</label>
                         <div class="input-group">
-                            <input type="password" class="form-control" name="password" placeholder="Nhập mật khẩu" id="passwordLogin">
+                            <input type="password" class="form-control" name="password" placeholder="Nhập mật khẩu" id="passwordVendorLogin">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-envelope"></span>

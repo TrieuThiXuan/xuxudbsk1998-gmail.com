@@ -78,6 +78,12 @@ class User extends Authenticatable
     {
         $this->hasMany(Promotion::class);
     }
+
+    public function isVendor()
+    {
+        return $this->role == self::VENDOR;
+    }
+
     public function isAdmin()
     {
         return $this->role == self::ADMIN;

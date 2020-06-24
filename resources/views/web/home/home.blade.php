@@ -21,8 +21,29 @@
     <div class="vendor text-center mt-5">
         <div class="row">
             <div class="col-12">
-                <h3>Đối tác liên kết</h3>
+                <h3 class="color-3aad92 my-5"><b>ĐỐI TÁC LIÊN KẾT</b></h3>
+                <div class="your-class justify-content-around">
+                    @foreach($vendors as $vendor)
+                        @if (!empty($vendor->avatar))
+                            <img src="{{ asset($vendor->avatar) }}" class="h-300 px-2">
+                        @endif
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script>
+        $(document).ready(function(){
+            $('.your-class').slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                accessibility: true,
+                autoplay: true,
+                autoplaySpeed: 2000,
+            });
+        })
+    </script>
 @endsection

@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form enctype="multipart/form-data" id="formRegister">
                     <div class="form-group">
                         <label class="col-form-label">Email:</label>
                         <div class="input-group">
@@ -20,6 +20,20 @@
                             </div>
                         </div>
                         @error('email')
+                        <strong class="alert alert-danger"> {{ $message }}</strong>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label mr-2">Tên Công ty/Tổ chức:</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="name" placeholder="Tên Công ty, Tổ chức" id="vendorNameRegister">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope"></span>
+                                </div>
+                            </div>
+                        </div>
+                        @error('name')
                         <strong class="alert alert-danger"> {{ $message }}</strong>
                         @enderror
                     </div>
@@ -48,6 +62,20 @@
                             </div>
                         </div>
                         @error('confirmPassword')
+                        <strong class="alert alert-danger"> {{ $message }}</strong>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label mr-2">Số điện thoại liên hệ:</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="phone" placeholder="số điện thoại liên hệ" id="vendorPhoneRegister">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope"></span>
+                                </div>
+                            </div>
+                        </div>
+                        @error('phone')
                         <strong class="alert alert-danger"> {{ $message }}</strong>
                         @enderror
                     </div>

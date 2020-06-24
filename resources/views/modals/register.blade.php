@@ -10,45 +10,45 @@
             <div class="modal-body">
                 <form id="registerUser">
                     <div class="input-group">
-                        <div class="row">
-                            <div class="col-2">
+                        <!-- <div class="row"> -->
+                            <!-- <div class="col-2"> -->
                                 <h5 class="col-form-label mr-2">Email:</h5>
-                            </div>
-                            <div class="col-10">
+                            <!-- </div> -->
+                            <!-- <div class="col-10"> -->
                                 <input type="text" class="form-control" name="email" placeholder="Nhập email" id ="emailRegister">
                                 @error('email')
                                 <strong class="alert alert-danger"> {{ $message }}</strong>
                                 @enderror
-                            </div>
-                        </div>
+                            <!-- </div> -->
+                        <!-- </div> -->
                     </div>
                     <div class="input-group">
-                        <div class="row">
-                            <div class="col-2">
+                        <!-- <div class="row"> -->
+                            <!-- <div class="col-2"> -->
                                 <h5 class="col-form-label mr-2">Mật khẩu:</h5>
-                            </div>
-                            <div class="col-10">
+                            <!-- </div> -->
+                            <!-- <div class="col-10"> -->
                                 <input type="password" class="form-control" name="password" placeholder="Nhập mật khẩu" id="passwordRegister">
                                 @error('password')
                                 <strong class="alert alert-danger"> {{ $message }}</strong>
                                 @enderror
-                            </div>
-                        </div>
+                            <!-- </div> -->
+                        <!-- </div> -->
                     </div>
                     <div class="input-group">
-                        <div class="row">
-                            <div class="col-2">
+                        <!-- <div class="row"> -->
+                            <!-- <div class="col-2"> -->
                                 <h5 class="col-form-label mr-2">Xác nhận mật khẩu:</h5>
-                            </div>
-                            <div class="col-10">
-                                <input type="password" class="form-control" name="confirmPassword" placeholder="Nhập mật khẩu" id="confirmPasswordRegister">
+                            <!-- </div> -->
+                            <!-- <div class="col-10"> -->
+                                <input type="password" class="form-control" name="confirmPassword" placeholder="Xác nhận mật khẩu" id="confirmPasswordRegister">
                                 @error('confirmPassword')
                                 <strong class="alert alert-danger"> {{ $message }}</strong>
                                 @enderror
-                            </div>
-                        </div>
+                            <!-- </div> -->
+                        <!-- </div> -->
                     </div>
-                    <div class="input-group">
+                    <!-- <div class="input-group">
                         <div class="row">
                             <div class="col-2">
                                 <h5 class="col-form-label mr-2">Ngày sinh:</h5>
@@ -99,7 +99,7 @@
                         @error('gender')
                         <strong class="alert alert-danger"> {{ $message }}</strong>
                         @enderror
-                    </div>
+                    </div> -->
                 </form>
                 <button type="submit" class="btn btn-primary" onclick="registerUser()">Đăng ký</button>
             </div>

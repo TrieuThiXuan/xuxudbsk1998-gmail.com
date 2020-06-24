@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+   <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -20,6 +20,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/index.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/slick.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/slick-theme.css') }}"/>
 </head>
 <body>
 <header>
@@ -41,7 +43,11 @@
                             <span class="mx-2 color-white">|</span>
                             <div><a href="{{ route('optionRegister') }}">Đăng ký</a></div>
                         @else
-                            <span class="align-self-center color-white">{{ \Illuminate\Support\Facades\Auth::user()->name }}</span>
+                            @if(Illuminate\Support\Facades\Auth::user()->isVendor())
+                            <a class="align-self-center color-white" href="{{ route('avatar_profile', Illuminate\Support\Facades\Auth::id()) }}">{{ \Illuminate\Support\Facades\Auth::user()->name }}</a>
+                            @else
+                                <span class="align-self-center color-white">{{ \Illuminate\Support\Facades\Auth::user()->name }}</span>
+                            @endif
                             <span class="align-self-center font-header ellipsis color-white mx-2">|</span>
                             <a class="align-self-center ellipsis" href="{{ route('logout') }}"
                                onclick="event.preventDefault();　document.getElementById('logout-form').submit();">
@@ -118,13 +124,13 @@
         </div>
     </div>
 </div>
-<div class="content">
+<div class="content mb-5">
     <div class="container">
         @yield('content')
     </div>
 </div>
 <footer>
-    <div class="row">
+    <div class="row text-center align-items-center color-white font-14">
         <div class="col-2">
             <p class="font-12">Giới thiệu</p>
         </div>
@@ -144,7 +150,7 @@
             <p class="font-12">Trợ giúp</p>
         </div>
     </div>
-    <div class="row">
+    <div class="row text-center">
         <div class="col-12">
             <p>xuanttbkhn
             </p>
@@ -152,6 +158,7 @@
     </div>
 </footer>
 <script type="text/javascript" src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
+
 @yield('script')
 </body>
 </html>

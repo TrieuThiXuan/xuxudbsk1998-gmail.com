@@ -65,7 +65,8 @@
             let email = $('#vendorEmailRegister').val();
             let password = $('#vendorPasswordRegister').val();
             let passwordConfirm = $('#vendorConfirmPasswordRegister').val();
-            console.log($('#vendorRegisterPortal').val())
+            let name = $('#vendorNameRegister').val();
+            let phone = $('#vendorPhoneRegister').val();
             $.ajax({
                 url: $('#vendorRegisterPortal').val(),
                 type: 'POST',
@@ -73,6 +74,8 @@
                     email: email,
                     password: password,
                     passwordConfirm: passwordConfirm,
+                    name: name,
+                    phone: phone,
                 },
                 success: function (data) {
                     if (data.status === true) {

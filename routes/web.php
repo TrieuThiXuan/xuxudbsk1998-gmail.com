@@ -35,9 +35,11 @@ Route::get('option-login', 'UserController@optionLogin')->name('optionLogin');
 Route::post('register_portal', 'UserController@registerPortal')->name('register_portal');
 Route::post('vendor_register_portal', 'UserController@vendorRegisterPortal')->name('vendor_register_portal');
 Route::post('login_portal', 'UserController@loginPortal')->name('login_portal');
-Route::post('vendor_login_portal', 'UserController@loginPortal')->name('vendor_login_portal');
+Route::post('vendor_login_portal', 'UserController@vendorLoginPortal')->name('vendor_login_portal');
 Route::post('logout_portal', 'UserController@logout')->name('logout_portal');
 Route::post('store_calendar', 'googleCalendarController@store')->name('store_calendar');
+Route::get('avatar_profile/{vendor}', 'UserController@avatarProfile')->name('avatar_profile');
+Route::patch('update_avatar_profile/{vendor}', 'UserController@updateAvatarProfile')->name('update_avatar_profile');
 
 Route::resource('gcalendar', 'gCalendarController');
 Route::post('gcalendar', 'gCalendarController@store')->name('cla_store');

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Http\Requests\VendorRegisterRequest;
 use App\Mail\ActiveUserMail;
+use App\Promotion;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +22,8 @@ class UserController extends Controller
     public function index()
     {
         $data = [
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'vendors' => User::select('avatar')->where('role', User::VENDOR)->get()
         ];
         return view('web.home.home', $data);
     }
@@ -121,13 +124,14 @@ class UserController extends Controller
         ]);
     }
 
-    public function vendorRegisterPortal(Request $request)
+    public function vendorRegisterPortal(VendorRegisterRequest $request)
     {
         $user = User::create([
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role' => User::VENDOR,
-            'name' => $request->email,
+            'name' => $request->name,
+            'phone' => $request->phone,
             'status' => User::IN_ACTIVE,
         ]);
 //        dd($user);
@@ -181,4 +185,22 @@ class UserController extends Controller
         Auth::logout();
         return redirect()->route('index');
     }
+
+    public function avatarProfile($id) {
+        $data = [
+            'vendor' => User::findOrFail($id)
+        ];
+        return view('web.home.profile', $data);
+    }
+
+  public function updateAvatarProfile(Request $request, $id)
+  {
+      $data = $request->all();
+      $imageName = uniqid() . '.' . request()->avatar->getClientOriginalExtension();
+      request()->avatar->storeAs('public/images', $imageName);
+      $imageName = 'storage/images/' . $imageName;
+      $data['avatar'] = $imageName;
+      User::where('id', $id)->update(['avatar' => $data['avatar']]);
+      return redirect()->route('index');
+  }
 }

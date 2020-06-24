@@ -3,7 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-body login-card-body">
-            <p class="login-box-msg"><b>{{ __('Login') }}</b></p>
+            <p class="login-box-msg"><b>{{ __('Đăng nhập') }}</b></p>
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="input-group mb-3">
@@ -18,7 +18,7 @@
                     @enderror
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Password" name="password" value="{{ old('password') }}">
+                    <input type="password" class="form-control" placeholder="Mật khẩu" name="password" value="{{ old('password') }}">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>
@@ -26,18 +26,18 @@
                     </div>
 
                 </div>
-                <div class="row">
-                    <div class="col-8">
+                <div class="d-flex flex-row justify-content-between">
+                    <div class="">
                         <div class="icheck-primary">
                             <input type="checkbox" id="remember">
                             <label for="remember">
-                                Remember Me
+                                Nhớ mật khẩu?
                             </label>
                         </div>
                     </div>
                     <!-- /.col -->
-                    <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block">{{ __('Log in') }}</button>
+                    <div class="">
+                        <button type="submit" class="btn btn-primary btn-block">{{ __('Đăng nhập') }}</button>
                     </div>
                     <!-- /.col -->
                 </div>
@@ -45,7 +45,7 @@
             <div class="form-group row mb-0">
                 @if (Route::has('password.request'))
                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                        {{ __('Forgot Your Password?') }}
+                        {{ __('Quên mật khẩu?') }}
                     </a>
                 @endif
             </div>
