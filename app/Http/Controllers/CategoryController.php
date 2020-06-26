@@ -99,4 +99,20 @@ class CategoryController extends Controller
         ];
         return view('web.home.category', $data);
     }
+
+    public function search(Request $request)
+    {
+        $data =
+        [
+            'promotions' =>  Promotion::where('name', 'like', '%' . $request->search . '%')->get(),
+        ];
+        if (count($data['promotions']) == 0) {
+            $message = trans('message.search_empty');
+            $data =[
+                'message' => $message
+            ];
+            return view('web.home.search', $data);
+        }
+        return view('web.home.search', $data);
+    }
 }

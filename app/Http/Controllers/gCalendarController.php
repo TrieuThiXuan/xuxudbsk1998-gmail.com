@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Carbon\Carbon;
 use Google_Client;
 use Google_Service_Calendar;
 use Google_Service_Calendar_Event;
@@ -84,6 +85,7 @@ class gCalendarController extends Controller
 
 //session_start();
         session_start();
+//        dd(request()->session());
 //
 //        $rurl = action('gCalendarController@oauth');
 //        $this->client->setRedirectUri($rurl);
@@ -104,9 +106,9 @@ class gCalendarController extends Controller
 
             $calendarId = 'primary';
             $event = new Google_Service_Calendar_Event([
-                'summary' => $request->title,
-                'start' => ['dateTime' => '2020-06-06T04:09:29+00:00'],
-                'end' => ['dateTime' => '2020-06-08T04:09:29+00:00'],
+                'summary' => $request->name,
+                'start' => ['dateTime' => '2020-06-26T04:09:29+00:00'],
+                'end' => ['dateTime' => '2020-06-27T04:09:29+00:00'],
                 'reminders' => ['useDefault' => true],
             ]);
             $results = $service->events->insert($calendarId, $event);

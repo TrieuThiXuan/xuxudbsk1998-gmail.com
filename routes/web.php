@@ -45,3 +45,7 @@ Route::patch('update_avatar_profile/{vendor}', 'UserController@updateAvatarProfi
 Route::resource('gcalendar', 'gCalendarController');
 Route::post('gcalendar', 'gCalendarController@store')->name('cla_store');
 Route::get('oauth', ['as' => 'oauthCallback', 'uses' => 'gCalendarController@oauth']);
+Route::get('goauth', 'gCalendarController@getAuth')->name('get_auth');
+
+Route::get('search', 'CategoryController@search')->name('search');
+Route::post('active-user', 'UserController@activeUser')->name('active_user');

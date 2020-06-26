@@ -23,7 +23,8 @@ class User extends Authenticatable
         'gender',
         'phone',
         'address',
-        'role'
+        'role',
+        'status',
     ];
 
     CONST NORMAL = 1;

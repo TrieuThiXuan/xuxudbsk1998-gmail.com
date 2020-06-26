@@ -8,8 +8,10 @@
     </div>
     @include('modals.register')
     @include('modals.vendor_register')
+    @include('modals.send_error')
     <input type="hidden" id="registerPortal" value="{{ route('register_portal') }}">
     <input type="hidden" id="vendorRegisterPortal" value="{{ route('vendor_register_portal') }}">
+    <input type="hidden" id="activeCodeUrl" value="{{ route('active_user') }}">
 @endsection
 @section('script')
 <script>
@@ -35,6 +37,7 @@
             let phone = $('#phoneRegister').val();
             let address = $('#addressRegister').val();
             let gender = $('#genderRegister').val();
+            let url = $('#activeCodeUrl').val();
             $.ajax({
                 url: $('#registerPortal').val(),
                 type: 'POST',
@@ -45,7 +48,8 @@
                     birthday: birthday,
                     phone: phone,
                     address: address,
-                    gender: gender
+                    gender: gender,
+                    url: url,
                 },
                 success: function (data) {
                     if (data.status === true) {

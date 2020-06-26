@@ -20,11 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f231b008-69f6-40f8-93c0-74fba3fea3fd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/modals/send_error.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/web/home/search.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/web/home/user_profile.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/web/home/category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/home/category.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/web/home/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/home/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/gCalendarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/gCalendarController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Mail/ActiveUserMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/ActiveUserMail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/mail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/vi/message.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/vi/message.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/web/emails/active_user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/emails/active_user.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/web/home/option_register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/home/option_register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/web/home/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/home/profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/web/home/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/home/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/web/layouts/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/layouts/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -214,7 +224,8 @@
       <workItem from="1592204819917" duration="45887000" />
       <workItem from="1592987485564" duration="241000" />
       <workItem from="1592988635743" duration="786000" />
-      <workItem from="1592989455286" duration="8120000" />
+      <workItem from="1592989455286" duration="28413000" />
+      <workItem from="1593133204272" duration="3839000" />
     </task>
     <servers />
   </component>
@@ -238,11 +249,11 @@
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="452" y="146" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/72.27.1294.741@72.27.1294.741" timestamp="1592039189951" />
-    <state x="453" y="154" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1592383506309">
+    <state x="453" y="154" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1593066042391">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="449" y="154" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1299.741@67.27.1299.741" timestamp="1589618602694" />
-    <state x="453" y="154" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/72.27.1294.741@72.27.1294.741" timestamp="1592383506309" />
+    <state x="453" y="154" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/72.27.1294.741@72.27.1294.741" timestamp="1593066042391" />
     <state x="452" y="312" width="523" height="178" key="ComposerInitDialogKey" timestamp="1590606799381">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
@@ -255,11 +266,11 @@
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="354" y="175" width="719" height="452" key="EditFileWatcherDialog/72.27.1294.741@72.27.1294.741" timestamp="1590158743678" />
-    <state x="502" y="154" width="424" height="491" key="FileChooserDialogImpl" timestamp="1592209353716">
+    <state x="502" y="154" width="424" height="491" key="FileChooserDialogImpl" timestamp="1593158826648">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1587397090513" />
-    <state x="502" y="154" width="424" height="491" key="FileChooserDialogImpl/72.27.1294.741@72.27.1294.741" timestamp="1592209353716" />
+    <state x="502" y="154" width="424" height="491" key="FileChooserDialogImpl/72.27.1294.741@72.27.1294.741" timestamp="1593158826648" />
     <state width="1253" height="175" key="GridCell.Tab.0.bottom" timestamp="1586796452194">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
@@ -280,22 +291,22 @@
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="361" y="117" width="705" height="568" key="NewPhpClassDialog/72.27.1294.741@72.27.1294.741" timestamp="1591107676947" />
-    <state x="514" y="323" width="399" height="156" key="NewPhpFileDialog" timestamp="1592382745195">
+    <state x="514" y="323" width="399" height="156" key="NewPhpFileDialog" timestamp="1593158781954">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="514" y="323" width="399" height="156" key="NewPhpFileDialog/72.27.1294.741@72.27.1294.741" timestamp="1592382745195" />
+    <state x="514" y="323" width="399" height="156" key="NewPhpFileDialog/72.27.1294.741@72.27.1294.741" timestamp="1593158781954" />
     <state x="372" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1586797213309">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1586797213309" />
-    <state x="389" y="162" width="622" height="606" key="find.popup" timestamp="1592995532028">
+    <state x="389" y="162" width="622" height="606" key="find.popup" timestamp="1593185154712">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="389" y="162" width="622" height="606" key="find.popup/72.27.1294.741@72.27.1294.741" timestamp="1592995532028" />
-    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1592995337235">
+    <state x="389" y="162" width="622" height="606" key="find.popup/72.27.1294.741@72.27.1294.741" timestamp="1593185154712" />
+    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1593067463273">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="379" y="89" width="672" height="678" key="search.everywhere.popup/67.27.1299.741@67.27.1299.741" timestamp="1589619847398" />
-    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup/72.27.1294.741@72.27.1294.741" timestamp="1592995337235" />
+    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup/72.27.1294.741@72.27.1294.741" timestamp="1593067463273" />
   </component>
 </project>

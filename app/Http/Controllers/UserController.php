@@ -106,6 +106,8 @@ class UserController extends Controller
 
     public function registerPortal(Request $request)
     {
+        $email = $request->email;
+        $url = $request->url;
         $user = User::create([
             'email' => $request->email,
             'password' => Hash::make($request->password),
@@ -117,7 +119,7 @@ class UserController extends Controller
             'address' => $request->address,
             'status' => User::IN_ACTIVE,
         ]);
-        Mail::to($request->email)->send(new ActiveUserMail($user));
+        Mail::to($email)->send(new ActiveUserMail($user, $url));
         return response()->json([
             'status' => true,
             'message' => trans('message.user_register.success'),
@@ -135,7 +137,7 @@ class UserController extends Controller
             'status' => User::IN_ACTIVE,
         ]);
 //        dd($user);
-//        Mail::to($request->email)->send(new ActiveUserMail($user));
+        Mail::to($request->email)->send(new ActiveUserMail($user));
         return response()->json([
             'status' => true,
             'message' => trans('message.user_register.success'),
@@ -201,6 +203,21 @@ class UserController extends Controller
       $imageName = 'storage/images/' . $imageName;
       $data['avatar'] = $imageName;
       User::where('id', $id)->update(['avatar' => $data['avatar']]);
+      return redirect()->route('index');
+  }
+
+  public function activeUser()
+  {
+      dd(\request()->email);
+      $user = User::where('email', request()->email)
+          ->where('status', User::IN_ACTIVE)
+          ->first();
+      if ($user) {
+          $user->update([
+              'status' => User::ACTIVE,
+          ]);
+          request()->session()->put('active_account', 'Success');
+      }
       return redirect()->route('index');
   }
 }

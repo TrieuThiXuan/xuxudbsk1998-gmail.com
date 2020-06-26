@@ -15,6 +15,7 @@
             </div>
         </div>
     </div>
+    @auth()
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -45,10 +46,13 @@
                         <option>Vào thứ 2 hàng tuần</option>
                         </select>
                         </div>
-                
+                            <input type="hidden" value="{{ $promotion->name }}" name="name">
+                            <input type="hidden" value="{{ $promotion->began_at }}" name="began_at">
+                            <input type="hidden" value="{{ $promotion->finished_at }}" name="finished_at">
+                            @auth()
+                            <input type="hidden" value="{{ \Illuminate\Support\Facades\Auth::user()->email ?  \Illuminate\Support\Facades\Auth::user()->email : ''}}" name="email">
+                            @endauth()
                         </div>
-                        <input type="hidden" value="{{ $promotion->name }}" name="name">
-                        <input type="hidden" value="{{ \Illuminate\Support\Facades\Auth::user()->email }}" name="email">
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Lưu</button>
@@ -58,19 +62,36 @@
             </div>
         </div>
     </div>
-    <input type="hidden" value="{{ $promotion->name }}" name="name">
-    <input type="hidden" value="{{ \Illuminate\Support\Facades\Auth::user()->email ?  \Illuminate\Support\Facades\Auth::user()->email : ''}}" name="email">
+    @else
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <p>Bạn cần đăng nhập</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endauth()
+
 @endsection
 <script>
     $('#storeCalender').submit(function () {
         let name = $('input[name=name]').val();
         let email = $('input[name=email]').val();
+        let began_at = $('input[name=began_at]').val();
+        let finished_at = $('input[name=finished_at]').val();
         $.ajax({
             url: {{ route('cla_store') }},
             type: 'POST',
             data: {
                 name: name,
                 email: email,
+                began_at: began_at,
+                finished_at: finished_at,
             },
             success: function (data) {
                 if (data.status === true) {
@@ -80,7 +101,7 @@
                     let $modal = $('#modalErrorSendEmail');
                     if (data.error_status) {
                         $modal = $('#inActiveAccount');
-                        $modal.find('.httv-resend-mail-active').attr('data-href', data.resend_active_mail_href)
+                        $modal.find('.-resend-mail-active').attr('data-href', data.resend_active_mail_href)
                     }
                     $modal.find('.message').text(data.message);
                     $modal.modal('show');
