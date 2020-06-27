@@ -97,4 +97,9 @@ class User extends Authenticatable
         }
         return $query;
     }
+
+    public function promotions()
+    {
+        return $this->belongsToMany(Promotion::class);
+    }
 }

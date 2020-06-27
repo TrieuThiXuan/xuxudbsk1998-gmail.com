@@ -43,5 +43,13 @@
                 </p>
             </a>
         </li>
+        <li class="nav-item">
+            <a href="{{ route('count') }}" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                    Theo dõi
+                </p>
+            </a>
+        </li>
     </ul>
 </nav>

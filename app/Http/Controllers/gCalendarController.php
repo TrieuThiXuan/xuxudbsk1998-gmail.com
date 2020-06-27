@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\User;
 use Carbon\Carbon;
 use Google_Client;
 use Google_Service_Calendar;
@@ -80,26 +81,10 @@ class gCalendarController extends Controller
      */
     public function store(Request $request)
     {
-// each client should remember their session id for EXACTLY 1 hour
-// session_set_cookie_params(120);
 
-//session_start();
         session_start();
-//        dd(request()->session());
-//
-//        $rurl = action('gCalendarController@oauth');
-//        $this->client->setRedirectUri($rurl);
-////        if (!isset($_GET['code'])) {
-//            $auth_url = $this->client->createAuthUrl();
-//            $filtered_url = filter_var($auth_url, FILTER_SANITIZE_URL);
-////            dd($filtered_url);
-//        return redirect($filtered_url)->isRedirect('gCalendarController@sote');
-////        } else {
-////            $this->client->authenticate($_GET['code']);
-////            $_SESSION['access_token'] = $this->client->getAccessToken();
-////            dd(124);
-////            return redirect()->route('index');
-////        }
+$id = $request->id;
+$id_promotion = $request->id_promotion;
         if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
             $this->client->setAccessToken($_SESSION['access_token']);
             $service = new Google_Service_Calendar($this->client);
@@ -119,6 +104,8 @@ class gCalendarController extends Controller
 //
 //            ];
             \Illuminate\Http\Response::HTTP_OK;
+            $user = User::findOrFail($id);
+         $user->promotions()->attach($id_promotion);
             session_destroy();
             return redirect()->route('index');
         } else {

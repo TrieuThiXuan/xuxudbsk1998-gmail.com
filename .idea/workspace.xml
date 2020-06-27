@@ -20,22 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f231b008-69f6-40f8-93c0-74fba3fea3fd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/modals/send_error.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/web/home/search.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/web/home/user_profile.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/report/report.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PromotionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PromotionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/gCalendarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/gCalendarController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/ActiveUserMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/ActiveUserMail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Promotion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Promotion.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/mail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/vi/message.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/vi/message.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/web/emails/active_user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/emails/active_user.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/web/home/option_register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/home/option_register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/web/home/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/home/profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/web/home/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/home/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/web/layouts/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/layouts/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -225,7 +218,7 @@
       <workItem from="1592987485564" duration="241000" />
       <workItem from="1592988635743" duration="786000" />
       <workItem from="1592989455286" duration="28413000" />
-      <workItem from="1593133204272" duration="3839000" />
+      <workItem from="1593133204272" duration="12239000" />
     </task>
     <servers />
   </component>
@@ -291,22 +284,22 @@
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="361" y="117" width="705" height="568" key="NewPhpClassDialog/72.27.1294.741@72.27.1294.741" timestamp="1591107676947" />
-    <state x="514" y="323" width="399" height="156" key="NewPhpFileDialog" timestamp="1593158781954">
+    <state x="514" y="323" width="399" height="156" key="NewPhpFileDialog" timestamp="1593219774265">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="514" y="323" width="399" height="156" key="NewPhpFileDialog/72.27.1294.741@72.27.1294.741" timestamp="1593158781954" />
+    <state x="514" y="323" width="399" height="156" key="NewPhpFileDialog/72.27.1294.741@72.27.1294.741" timestamp="1593219774265" />
     <state x="372" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1586797213309">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1586797213309" />
-    <state x="389" y="162" width="622" height="606" key="find.popup" timestamp="1593185154712">
+    <state x="389" y="162" width="622" height="606" key="find.popup" timestamp="1593186821254">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="389" y="162" width="622" height="606" key="find.popup/72.27.1294.741@72.27.1294.741" timestamp="1593185154712" />
-    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1593067463273">
+    <state x="389" y="162" width="622" height="606" key="find.popup/72.27.1294.741@72.27.1294.741" timestamp="1593186821254" />
+    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1593221655192">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="379" y="89" width="672" height="678" key="search.everywhere.popup/67.27.1299.741@67.27.1299.741" timestamp="1589619847398" />
-    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup/72.27.1294.741@72.27.1294.741" timestamp="1593067463273" />
+    <state x="383" y="89" width="672" height="678" key="search.everywhere.popup/72.27.1294.741@72.27.1294.741" timestamp="1593221655192" />
   </component>
 </project>

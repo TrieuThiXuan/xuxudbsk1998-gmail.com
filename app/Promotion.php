@@ -70,4 +70,9 @@ class Promotion extends Model
             return $query->where('status', $request);
         }
     }
+
+    public function customers()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

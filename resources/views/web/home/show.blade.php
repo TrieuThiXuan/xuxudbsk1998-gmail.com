@@ -46,10 +46,12 @@
                         <option>Vào thứ 2 hàng tuần</option>
                         </select>
                         </div>
+                            <input type="hidden" value="{{ $promotion->id }}" name="id_promotion">
                             <input type="hidden" value="{{ $promotion->name }}" name="name">
                             <input type="hidden" value="{{ $promotion->began_at }}" name="began_at">
                             <input type="hidden" value="{{ $promotion->finished_at }}" name="finished_at">
                             @auth()
+                                <input type="hidden" value="{{ \Illuminate\Support\Facades\Auth::id() ?  \Illuminate\Support\Facades\Auth::id() : ''}}" name="id">
                             <input type="hidden" value="{{ \Illuminate\Support\Facades\Auth::user()->email ?  \Illuminate\Support\Facades\Auth::user()->email : ''}}" name="email">
                             @endauth()
                         </div>
