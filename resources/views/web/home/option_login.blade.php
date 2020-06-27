@@ -1,15 +1,20 @@
 @extends('web.layouts.header')
 @section('content')
-    <div class="h-240 d-flex justify-content-center align-items-center">
-        <a href="#" class="btn btn-info mr-5" onclick="vendorLoginModal()" data-toggle="modal">
-            Người cung cấp đăng nhập</a>
-        <a href="#" class="btn btn-info" onclick="loginModal()" data-toggle="modal">
-            Người dùng đăng nhập</a>
+    @include('web.layouts.slider')
+    <div class="content mb-5">
+        <div class="container">
+            <div class="h-240 d-flex justify-content-center align-items-center">
+                <a href="#" class="btn btn-info mr-5" onclick="vendorLoginModal()" data-toggle="modal">
+                    Người cung cấp đăng nhập</a>
+                <a href="#" class="btn btn-info" onclick="loginModal()" data-toggle="modal">
+                    Người dùng đăng nhập</a>
+            </div>
+            @include('modals.login')
+            @include('modals.vendor_login')
+            <input type="hidden" id="loginPortal" value="{{ route('login_portal') }}">
+            <input type="hidden" id="vendorLoginPortal" value="{{ route('vendor_login_portal') }}">
+        </div>
     </div>
-    @include('modals.login')
-    @include('modals.vendor_login')
-    <input type="hidden" id="loginPortal" value="{{ route('login_portal') }}">
-    <input type="hidden" id="vendorLoginPortal" value="{{ route('vendor_login_portal') }}">
 @endsection
 @section('script')
     <script>

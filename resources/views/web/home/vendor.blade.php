@@ -19,14 +19,13 @@
                     </div>
                     <div class="col-9">
                         <div class="row">
-                            @foreach($promotions as $promotion)
+                            @foreach($vendors as $vendor)
                                 <div class="col-6">
                                     <div class="article">
-                                        <img src="{{ asset($promotion->image) }}" class="w-100">
-                                        <a href="{{ route('promotion.show', $promotion->id) }}">
-                                            <h3>{{ $promotion->name }}</h3>
+                                        <img src="{{ asset($vendor->avatar) }}" class="w-100">
+                                        <a href="{{ route('promotion.show', $vendor->id) }}">
+                                            <h3>{{ $vendor->name }}</h3>
                                         </a>
-                                        <p>{{ $promotion->summary }}</p>
                                     </div>
                                 </div>
                             @endforeach
@@ -39,12 +38,13 @@
 @endsection
 @section('script')
     <script>
-     $(document).ready(function () {
-         let url = window.location;
-         console.log(url)
-         $('.aaa a').filter(function () {
-             return this.href == url;
-         }).css("background-color", "#3aad92");
-     });
+        $(document).ready(function () {
+            let url = window.location;
+            console.log(url)
+            $('.aaa a').filter(function () {
+                return this.href == url;
+            }).css("background-color", "#3aad92");
+        });
     </script>
 @endsection()
+

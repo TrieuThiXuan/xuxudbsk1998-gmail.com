@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\VendorRegisterRequest;
 use App\Mail\ActiveUserMail;
 use App\Promotion;
@@ -25,6 +26,7 @@ class UserController extends Controller
             'categories' => Category::all(),
             'vendors' => User::select('avatar')->where('role', User::VENDOR)->get()
         ];
+//        dd($data['categories']);
         return view('web.home.home', $data);
     }
 
@@ -104,7 +106,7 @@ class UserController extends Controller
         return view('web.home.option_login');
     }
 
-    public function registerPortal(Request $request)
+    public function registerPortal(RegisterRequest $request)
     {
         $email = $request->email;
         $url = $request->url;
@@ -221,5 +223,15 @@ class UserController extends Controller
       return redirect()->route('index');
   }
 
+  public function getVendor()
+  {
+      $vendors = User::where('role', User::VENDOR)->get();
+//            dd($vendors);
+      $data = [
+          'vendors' => $vendors,
+          'categories' => Category::all(),
+      ];
+      return view('web.home.vendor', $data);
+  }
 
 }

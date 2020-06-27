@@ -1,17 +1,22 @@
 @extends('web.layouts.header')
 @section('content')
-    <div class="h-240 d-flex justify-content-center align-items-center">
-    <a href="#" class="btn btn-info mr-5" onclick="vendorRegisterModal()" data-toggle="modal">
-        Người cung cấp đăng ký</a>
-    <a href="#" class="btn btn-info" onclick="registerModal()" data-toggle="modal">
-        Người dùng đăng ký</a>
+    @include('web.layouts.slider')
+    <div class="content mb-5">
+        <div class="container">
+            <div class="h-240 d-flex justify-content-center align-items-center">
+                <a href="#" class="btn btn-info mr-5" onclick="vendorRegisterModal()" data-toggle="modal">
+                    Người cung cấp đăng ký</a>
+                <a href="#" class="btn btn-info" onclick="registerModal()" data-toggle="modal">
+                    Người dùng đăng ký</a>
+            </div>
+            @include('modals.register')
+            @include('modals.vendor_register')
+            @include('modals.send_error')
+            <input type="hidden" id="registerPortal" value="{{ route('register_portal') }}">
+            <input type="hidden" id="vendorRegisterPortal" value="{{ route('vendor_register_portal') }}">
+            <input type="hidden" id="activeCodeUrl" value="{{ route('active_user') }}">
+        </div>
     </div>
-    @include('modals.register')
-    @include('modals.vendor_register')
-    @include('modals.send_error')
-    <input type="hidden" id="registerPortal" value="{{ route('register_portal') }}">
-    <input type="hidden" id="vendorRegisterPortal" value="{{ route('vendor_register_portal') }}">
-    <input type="hidden" id="activeCodeUrl" value="{{ route('active_user') }}">
 @endsection
 @section('script')
 <script>
@@ -88,7 +93,8 @@
                     }
                 },
                 error: function (response) {
-                    $('#registerModal').modal('hide');
+                    $('#vendorRegisterModal').modal('hide');
+                    $('#modalErrorSendEmail .message').text(response.responseJSON.errors.email);
                     $('#modalErrorSendEmail').modal('show');
                 }
             });

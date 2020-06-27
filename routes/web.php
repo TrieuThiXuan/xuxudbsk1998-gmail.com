@@ -42,6 +42,7 @@ Route::post('logout_portal', 'UserController@logout')->name('logout_portal');
 Route::post('store_calendar', 'googleCalendarController@store')->name('store_calendar');
 Route::get('avatar_profile/{vendor}', 'UserController@avatarProfile')->name('avatar_profile');
 Route::patch('update_avatar_profile/{vendor}', 'UserController@updateAvatarProfile')->name('update_avatar_profile');
+Route::get('vendor', 'UserController@getVendor')->name('getVendor');
 
 Route::resource('gcalendar', 'gCalendarController');
 Route::post('gcalendar', 'gCalendarController@store')->name('cla_store');

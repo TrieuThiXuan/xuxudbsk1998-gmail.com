@@ -80,7 +80,7 @@
                         <a class="nav-link" href="{{ route('category') }}">Khuyến mãi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Đối tác</a>
+                        <a class="nav-link" href="{{ route('getVendor') }}">Đối tác</a>
                     </li>
                 </ul>
 
@@ -88,49 +88,7 @@
         </nav>
     </div>
 </div>
-<div class="slider">
-    <div class="container">
-        <div class="slider d-flex flex-column align-items-center justify-content-center">
-            <form action="{{ route('search') }}" method="GET" id="searchSection">
-                <div class="input-search mb-4">
-                    <div class="row">
-                        <div class="col-12">
-                            <input class="form-control" placeholder="Tìm kiếm" id="searchInput" name="search">
-                        </div>
-                    </div>
-                </div>
-                <div class="mutil-input-search">
-                    <div class="row">
-                        <div class="col-4">
-                            <select class="form-control">
-                                <option value="1">Thể loại</option>
-                                <option class="1">1</option>
-                            </select>
-                        </div>
-                        <div class="col-4">
-                            <select class="form-control">
-                                <option value="1">Ví điện tử</option>
-                                <option class="2">Thẻ ngân hàng</option>
-                            </select>
-                        </div>
-                        <div class="col-4">
-                            <select class="form-control">
-                                <option value="1">Địa điểm</option>
-                                <option class="1">Hà Nội</option>
-                                <option class="1">Hồ Chí Minh</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<div class="content mb-5">
-    <div class="container">
-        @yield('content')
-    </div>
-</div>
+@yield('content')
 <footer>
     <div class="row text-center align-items-center color-white font-14">
         <div class="col-2">

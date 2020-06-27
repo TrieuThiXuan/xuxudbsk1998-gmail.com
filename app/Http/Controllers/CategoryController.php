@@ -17,7 +17,8 @@ class CategoryController extends Controller
     {
         $data = [
             'promotions' => Promotion::all(),
-            'categories' => Category::all()
+            'categories' => Category::all(),
+
         ];
         return view('web.home.category', $data);
     }
@@ -104,7 +105,8 @@ class CategoryController extends Controller
     {
         $data =
         [
-            'promotions' =>  Promotion::where('name', 'like', '%' . $request->search . '%')->get(),
+            'promotions' =>  Promotion::where('name', 'like', '%' . $request->search . '%')
+                ->orWhere('summary', 'like', '%' . $request->search . '%')->get(),
         ];
         if (count($data['promotions']) == 0) {
             $message = trans('message.search_empty');
