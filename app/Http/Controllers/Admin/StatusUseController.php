@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Category;
-use App\Promotion;
-use App\StatusPromotion;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class StatusUseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $data = [
-            'promotions' => Promotion::all(),
-            'categories' => Category::all(),
-            'statusPromotions' => StatusPromotion::all(),
-        ];
-        return view('web.home.category', $data);
+        //
     }
 
     /**
@@ -53,11 +46,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $data = [
-            'promotion' => Promotion::findOrFail($id),
-            'categories' => Category::all(),
-        ];
-        return view('web.home.show', $data);
+        //
     }
 
     /**
@@ -92,32 +81,5 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function showCategory($id)
-    {
-        $data = [
-            'promotions' => Promotion::where('category_id', $id)->get(),
-            'categories' => Category::all(),
-            'statusPromotions' => StatusPromotion::all(),
-        ];
-        return view('web.home.category', $data);
-    }
-
-    public function search(Request $request)
-    {
-        $data =
-        [
-            'promotions' =>  Promotion::where('name', 'like', '%' . $request->search . '%')
-                ->orWhere('summary', 'like', '%' . $request->search . '%')->get(),
-        ];
-        if (count($data['promotions']) == 0) {
-            $message = trans('message.search_empty');
-            $data =[
-                'message' => $message
-            ];
-            return view('web.home.search', $data);
-        }
-        return view('web.home.search', $data);
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PromotionStore;
 use App\Http\Requests\UpdatePromotion;
 use App\Promotion;
+use App\StatusPromotion;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Scope;
@@ -44,7 +45,8 @@ class PromotionController extends Controller
     {
         $data = [
             'categories' => Category::all(),
-            'users' => User::all()
+            'users' => User::all(),
+            'statusPromotions' => StatusPromotion::all(),
         ];
        return view('admin.promotions.create', $data);
     }

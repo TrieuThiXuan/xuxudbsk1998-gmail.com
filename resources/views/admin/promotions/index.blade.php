@@ -71,7 +71,7 @@
                         <td>{{ $promotion->isVendor->name }}</td>
                         <td>{{ $promotion->began_at }}</td>
                         <td>{{ $promotion->finished_at }}</td>
-                        <td>{{ $promotion->category->name }}</td>
+{{--                        <td>{{ $promotion->category->name }}</td>--}}
                         <td>
                             @foreach(\App\Promotion::STATUS as $key => $value)
                                 {{$key == $promotion->status ?  $value : ''}}

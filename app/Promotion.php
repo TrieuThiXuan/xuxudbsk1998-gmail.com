@@ -19,6 +19,10 @@ class Promotion extends Model
         'image',
         'category_id',
         'vendor_id',
+        'category_promotion_id',
+        'status_use',
+        'discount',
+        'priority',
     ];
 
     CONST PENDING = 'c';

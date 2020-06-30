@@ -26,6 +26,12 @@ Route::prefix('admin')->group(function () {
         Route::post('logout', 'UserController@logout')->name('logout');
         Route::get('user-vendor','UserController@userVendor')->name('user_vendor');
         Route::get('count', 'PromotionController@count')->name('count');
+        Route::get('category_promotion', 'CategoryPromotionController@index')->name('category_promotion');
+        Route::get('category_promotion_create', 'CategoryPromotionController@create')->name('category_promotion.create');
+        Route::post('category_promotion_store', 'CategoryPromotionController@store')->name('category_promotion.store');
+        Route::get('category_promotion/{category_promotion}/edit', 'CategoryPromotionController@edit')->name('category_promotion.edit');
+        Route::patch('category_promotion/{category_promotion}', 'CategoryPromotionController@update')->name('category_promotion.update');
+        Route::delete('category_promotion/{category_promotion}', 'CategoryPromotionController@destroy')->name('category_promotion.destroy');
     });
 });
 Route::get('index', 'UserController@index')->name('index');
@@ -43,6 +49,7 @@ Route::post('store_calendar', 'googleCalendarController@store')->name('store_cal
 Route::get('avatar_profile/{vendor}', 'UserController@avatarProfile')->name('avatar_profile');
 Route::patch('update_avatar_profile/{vendor}', 'UserController@updateAvatarProfile')->name('update_avatar_profile');
 Route::get('vendor', 'UserController@getVendor')->name('getVendor');
+Route::get('discount/{id}', 'DiscountController@show')->name('discount.show');
 
 Route::resource('gcalendar', 'gCalendarController');
 Route::post('gcalendar', 'gCalendarController@store')->name('cla_store');
