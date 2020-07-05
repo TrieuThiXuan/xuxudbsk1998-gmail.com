@@ -98,12 +98,18 @@ class UserController extends Controller
 
     public function optionRegister()
     {
-        return view('web.home.option_register');
+        $data = [
+            'categories' => Category::all()
+        ];
+        return view('web.home.option_register', $data);
     }
 
     public function optionLogin()
     {
-        return view('web.home.option_login');
+        $data = [
+            'categories' => Category::all()
+        ];
+        return view('web.home.option_login', $data);
     }
 
     public function registerPortal(RegisterRequest $request)

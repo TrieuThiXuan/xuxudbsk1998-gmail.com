@@ -6,6 +6,7 @@ use App\Category;
 use App\Promotion;
 use App\StatusPromotion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class CategoryController extends Controller
 {
@@ -106,18 +107,31 @@ class CategoryController extends Controller
 
     public function search(Request $request)
     {
+        $began_at = Carbon::parse($request->time_began)->format('Y-m-d');
+        $finished_at = Carbon::parse($request->time_finished)->format('Y-m-d');
+        $promotions =  Promotion::searchByKeyWord($request->search)->searchByCategory($request->category)
+            ->searchByTime($request)->get();
+//        $time_began = Promotion::whereDate('began_at', '>=',  $began_at)
+//            ->WhereDate('finished_at', '<=',  $finished_at)->get();
+//        dd($promotions);
         $data =
         [
-            'promotions' =>  Promotion::where('name', 'like', '%' . $request->search . '%')
-                ->orWhere('summary', 'like', '%' . $request->search . '%')->get(),
+            'promotions' => $promotions,
+            'categories' => Category::all(),
         ];
         if (count($data['promotions']) == 0) {
             $message = trans('message.search_empty');
             $data =[
-                'message' => $message
+                'message' => $message,
+                'categories' => Category::all(),
             ];
             return view('web.home.search', $data);
         }
         return view('web.home.search', $data);
+    }
+
+    public function listPriorityArticle()
+    {
+
     }
 }

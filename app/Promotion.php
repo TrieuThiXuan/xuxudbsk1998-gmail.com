@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
+use Illuminate\Support\Carbon;
 
 class Promotion extends Model
 {
@@ -78,5 +79,27 @@ class Promotion extends Model
     public function customers()
     {
         return $this->belongsToMany(User::class);
+    }
+
+    public function scopeSearchByKeyWord($query, $request){
+        if(isset($request)) {
+            return $query->where('name', 'like', '%' . $request . '%')
+                ->orWhere('summary', 'like', '%' . $request . '%');
+        }
+    }
+
+    public function scopeSearchByCategoryPortal($query, $request){
+        if(isset($request)) {
+            return $query->where('category_id', $request);
+        }
+    }
+
+    public function scopeSearchByTime($query, $request){
+        if(isset($request->time_began) && isset($request->time_finished)) {
+            $began_at = Carbon::parse($request->time_began)->format('Y-m-d');
+            $finished_at = Carbon::parse($request->time_finished)->format('Y-m-d');
+            return $query->whereDate('began_at', '>=',  $began_at)
+                ->WhereDate('finished_at', '<=',  $finished_at);
+        }
     }
 }
