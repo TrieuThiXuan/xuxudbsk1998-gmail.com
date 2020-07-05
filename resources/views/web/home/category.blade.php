@@ -30,10 +30,10 @@
                     <div class="col-9">
                         <div class="row">
                             <div class="col-12 mb-2">
-                                <span><a href="#" class="news">Tất cả</a></span>
-                                <span><a href="#" class="news">Nổi bật</a></span>
-                                <span><a href="#" class="news">Mới nhất</a></span>
-                                <span><a href="#" class="news">Giảm giá nhiều</a></span>
+                                <span><a href="{{ route('all.promotion') }}" class="news">Tất cả</a></span>
+                                <span><a href="{{ route('priority') }}" class="news">Nổi bật</a></span>
+                                <span><a href="{{ route('newest.promotion') }}" class="news">Mới nhất</a></span>
+                                <span><a href="{{ route('discount.promotion') }}" class="news">Giảm giá nhiều</a></span>
                             </div>
                             @foreach($promotions as $promotion)
                                 <div class="col-6">
@@ -59,6 +59,9 @@
          let url = window.location;
          console.log(url)
          $('.aaa a').filter(function () {
+             return this.href == url;
+         }).css("background-color", "#3aad92");
+         $('.news').filter(function () {
              return this.href == url;
          }).css("background-color", "#3aad92");
      });

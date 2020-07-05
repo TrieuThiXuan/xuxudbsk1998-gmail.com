@@ -132,6 +132,92 @@ class CategoryController extends Controller
 
     public function listPriorityArticle()
     {
+        $promotionPriority = Promotion::where('priority', Promotion::AC_PRIORITY)->get();
+//        dd($promotionPriority);
+        $data =
+            [
+                'promotions' => $promotionPriority,
+                'categories' => Category::all(),
+                'statusPromotions' => StatusPromotion::all(),
+            ];
+        if (count($data['promotions']) == 0) {
+            $message = trans('message.search_empty');
+            $data =[
+                'message' => $message,
+                'categories' => Category::all(),
+            ];
+            return view('web.home.search', $data);
+        }
+        return view('web.home.category', $data);
+    }
 
+    public function listNewestPromotion()
+    {
+        $newestPromotion = Promotion::where('status', Promotion::PUBLISH)->orderBy('updated_at', 'desc')->get();
+//        dd($newestPromotion);
+        $data =
+            [
+                'promotions' => $newestPromotion,
+                'categories' => Category::all(),
+                'statusPromotions' => StatusPromotion::all(),
+            ];
+        if (count($data['promotions']) == 0) {
+            $message = trans('message.search_empty');
+            $data =[
+                'message' => $message,
+                'categories' => Category::all(),
+            ];
+            return view('web.home.search', $data);
+        }
+        return view('web.home.category', $data);
+    }
+
+    public function listDiscountPromotion()
+    {
+        $discountPromotion = Promotion::where(function ($query){
+            $query->where('category_promotion_id', 1)->where('discount', '<>', null)->orderBy('discount', 'desc')
+                ->orderby('finished_at', 'asc')->limit(5);
+        })->orWhere(function ($query){
+            $query->where('category_promotion_id', 2)->where('discount', '<>', null)->orderBy('discount', 'desc')
+                ->orderby('finished_at', 'asc')->limit(5);
+        })->orWhere(function ($query){
+                $query->where('category_promotion_id', 3)->where('discount', '<>', null)->orderBy('discount', 'desc')
+                    ->orderby('finished_at', 'asc')->limit(5);
+        })->get();
+//        dd($discountPromotion);
+        $data =
+            [
+                'promotions' => $discountPromotion,
+                'categories' => Category::all(),
+                'statusPromotions' => StatusPromotion::all(),
+            ];
+        if (count($data['promotions']) == 0) {
+            $message = trans('message.search_empty');
+            $data =[
+                'message' => $message,
+                'categories' => Category::all(),
+            ];
+            return view('web.home.search', $data);
+        }
+        return view('web.home.category', $data);
+    }
+
+    public function listAllPromotion()
+    {
+        $data =
+            [
+                'promotions' => Promotion::all(),
+                'categories' => Category::all(),
+                'statusPromotions' => StatusPromotion::all(),
+            ];
+        if (count($data['promotions']) == 0) {
+            $message = trans('message.search_empty');
+            $data =[
+                'message' => $message,
+                'categories' => Category::all(),
+            ];
+            return view('web.home.search', $data);
+        }
+        return view('web.home.category', $data);
     }
 }

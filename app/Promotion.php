@@ -39,6 +39,15 @@ class Promotion extends Model
         self::PENDING => 'Chờ duyệt',
         self::PUBLISH => 'Xuất bản'
     ];
+
+    CONST AC_PRIORITY = 1;
+    CONST IN_PRIORITY = 0;
+
+    CONST PRIORITY = [
+        self::AC_PRIORITY => 'Ưu tiên',
+        self::IN_PRIORITY => 'Bình thường',
+    ];
+
     public function promotionImages()
     {
         $this->hasMany(PromotionImage::class);
