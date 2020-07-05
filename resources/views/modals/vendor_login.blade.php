@@ -19,9 +19,10 @@
                                 </div>
                             </div>
                         </div>
-                        @error('email')
-                        <strong class="alert alert-danger"> {{ $message }}</strong>
-                        @enderror
+                        <span style="color: red" id="erroremailLogin" class="error"></span>
+{{--                        @error('email')--}}
+{{--                        <strong class="alert alert-danger"> {{ $message }}</strong>--}}
+{{--                        @enderror--}}
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Mật khẩu:</label>
@@ -33,9 +34,10 @@
                                 </div>
                             </div>
                         </div>
-                        @error('password')
-                        <strong class="alert alert-danger"> {{ $message }}</strong>
-                        @enderror
+                        <span style="color: red" id="errorpasswordLogin" class="error"></span>
+{{--                        @error('password')--}}
+{{--                        <strong class="alert alert-danger"> {{ $message }}</strong>--}}
+{{--                        @enderror--}}
                     </div>
                     <div class="row">
                         <div class="col-8">
