@@ -55,7 +55,8 @@ class Promotion extends Model
 
     public function category()
     {
-        return $this->belongsTo(Category::class);
+//        dd(123);
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
     public function isVendor()

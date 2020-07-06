@@ -48,6 +48,7 @@
                         </div>
                     </form>
                 </div>
+                @if(\Illuminate\Support\Facades\Auth::user()->isAdmin())
             <table class="table">
                 <thead>
                 <tr>
@@ -63,24 +64,23 @@
                 </tr>
                 </thead>
                 <tbody>
-                @if(\Illuminate\Support\Facades\Auth::user()->isAdmin())
-                @foreach($promotions as $promotion)
+                @foreach($promotions_normal as $promotion_normal)
                     <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
-                        <td><a href="{{ route('users.show', $promotion->id) }}">{{ $promotion->name }}</a></td>
-                        <td>{{ $promotion->isVendor->name }}</td>
-                        <td>{{ $promotion->began_at }}</td>
-                        <td>{{ $promotion->finished_at }}</td>
-{{--                        <td>{{ $promotion->category->name }}</td>--}}
+                        <td><a href="{{ route('users.show', $promotion_normal) }}">{{ $promotion_normal->name }}</a></td>
+                        <td>{{ $promotion_normal->isVendor->name }}</td>
+                        <td>{{ $promotion_normal->began_at }}</td>
+                        <td>{{ $promotion_normal->finished_at }}</td>
+                        <td>{{ $promotion_normal->category->name ?? '' }}</td>
                         <td>
                             @foreach(\App\Promotion::STATUS as $key => $value)
-                                {{$key == $promotion->status ?  $value : ''}}
+                                {{$key == $promotion_normal->status ?  $value : ''}}
                             @endforeach
                         </td>
-                        <td><img src="{{ asset("$promotion->image") }}" class="w-100"></td>
+                        <td><img src="{{ asset("$promotion_normal->image") }}" class="w-100"></td>
                         <td class="d-flex flex-row">
-                            <a class="btn btn-success mr-2" href="{{ route('promotions.edit', $promotion->id) }}">Sửa</a>
-                            <form action="{{ route('promotions.destroy', $promotion->id) }}" method="POST">
+                            <a class="btn btn-success mr-2" href="{{ route('promotions.edit', $promotion_normal->id) }}">Sửa</a>
+                            <form action="{{ route('promotions.destroy', $promotion_normal->id) }}" method="POST">
                                 @method('DELETE')
                                 @csrf
                                 <button type="submit" class="btn btn-danger">Xóa</button>
@@ -88,15 +88,36 @@
                         </td>
                     </tr>
                 @endforeach
+                </tbody>
+            </table>
+                    <div class="float-right mt-2">
+                        {{ $promotions_normal->appends($_GET)->links() }}
+                    </div>
+        </div>
                     @else
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">{{ __('STT') }}</th>
+                                <th scope="col">{{ __('Tên chương trình') }}</th>
+                                <th scope="col">{{ __('Nhà cung cấp') }}</th>
+                                <th scope="col">{{ __('Thời gian bắt đầu') }}</th>
+                                <th scope="col">{{ __('Thời gian kết thúc') }}</th>
+                                <th scope="col">{{ __('Thể loại') }}</th>
+                                <th scope="col">{{ __('Trạng thái bài đăng') }}</th>
+                                <th scope="col">{{ __('Hình ảnh') }}</th>
+                                <th scope="col">{{ __('Hành động') }}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
                     @foreach($promotions_vendor as $promotion_vendor)
                         <tr>
-                            <th scope="row">{{ $promotion_vendor->id }}</th>
+                            <th scope="row">{{ $loop->iteration }}</th>
                             <td><a href="{{ route('users.show', $promotion_vendor->id) }}">{{ $promotion_vendor->name }}</a></td>
                             <td>{{ $promotion_vendor->isVendor->name }}</td>
                             <td>{{ $promotion_vendor->began_at }}</td>
                             <td>{{ $promotion_vendor->finished_at }}</td>
-                            <td>{{ $promotion_vendor->category->name }}</td>
+                            <td>{{ $promotion_vendor->category->name ?? '' }}</td>
                             <td>
                                 @foreach(\App\Promotion::STATUS as $key => $value)
                                     {{$key == $promotion_vendor->status ?  $value : ''}}
@@ -113,10 +134,14 @@
                             </td>
                         </tr>
                     @endforeach
+                            </tbody>
+                        </table>
+            <div class="float-right mt-2">
+                {{ $promotions_vendor->appends($_GET)->links() }}
+            </div>
+    </div>
                     @endif
-                </tbody>
-            </table>
-        </div>
+
     </div>
 @endsection
 

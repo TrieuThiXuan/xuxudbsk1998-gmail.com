@@ -26,10 +26,15 @@ class PromotionController extends Controller
      */
     public function index(Request $request)
     {
-        $promotions = Promotion::SearchByName($request->searchName)->SearchByCategory($request->searchCategory)->SearchByStatus($request->searchStatus)->get();
-        $promotions_vendor = Promotion::SearchByName($request->searchName)->SearchByCategory($request->searchCategory)->SearchByStatus($request->searchStatus)->where('vendor_id', Auth::user()->id)->get();
+        $promotions = Promotion::SearchByName($request->searchName)
+            ->SearchByCategory($request->searchCategory)
+            ->SearchByStatus($request->searchStatus)->with('category')->paginate(10);
+        $promotions_vendor = Promotion::SearchByName($request->searchName)
+            ->SearchByCategory($request->searchCategory)
+            ->SearchByStatus($request->searchStatus)
+            ->where('vendor_id', Auth::user()->id)->get();
         $data = [
-            'promotions' =>  $promotions,
+            'promotions_normal' =>  $promotions,
             'promotions_vendor' => $promotions_vendor,
             'categories' => Category::all(),
         ];

@@ -21,7 +21,7 @@ class CategoryController extends Controller
         $data = [
             'categories' => Category::SearchByName($request->searchName)->paginate(10),
         ];
-        return view('admin.categoryPromotion.index', $data);
+        return view('admin.categories.index', $data);
     }
 
     /**
