@@ -42,15 +42,20 @@
     <script>
         // let $j = jQuery.noConflict();
         jQuery(document).ready(function($){
-            // $('.your-class').slick({
-            //     infinite: true,
-            //     slidesToShow: 3,
-            //     slidesToScroll: 3,
-            //     accessibility: true,
-            //     autoplay: true,
-            //     autoplaySpeed: 2000,
-            // });
             $('.datepicker').datepicker();
-        })
+        });
+        jQuery(document).ready(function($){
+            $('.your-class').slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                accessibility: true,
+                autoplay: true,
+                autoplaySpeed: 2000,
+            });
+        });
+        // $(function() {
+        //
+        // });
     </script>
 @endsection
