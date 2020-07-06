@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row mt-5">
                 <div class="col-6 justify-content-center align-items-center offset-3">
-                    <a href="#"><i>Danh sách đã nhận thông báo</i></a>
+{{--                    <a href="#"><i>Danh sách đã nhận thông báo</i></a>--}}
                     <div class="align-items-center">
                         <form action="{{ route('update_avatar_profile', $vendor->id )}}" method ="POST" enctype="multipart/form-data">
                             @csrf
@@ -24,6 +24,18 @@
                                 </div>
                                 @error('avatar')
                                 <strong class="alert alert-danger"> {{ $message }}</strong>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <lable>Phương thức thanh toán</lable>
+                                <select class="form-control" name="payment_instrument">
+                                @foreach(\App\Promotion::PAYMENT_INSTRUMENT as $key => $value)
+{{--                                <input type="text" name="name" placeholder="Phương thức thanh toán" class="form-control" value="{{ old('payment_instrument', $vendor->payment_instrument) }}">--}}
+                              <option value="{{ $key }}" {{ old('payment_instrument') == $vendor->payment_instrument ? 'selected' : '' }}> {{ $value }}</option>
+                                @endforeach
+                                </select>
+                                @error('payment_instrument')
+                                <strong class="text-danger"> {{ $message }}</strong>
                                 @enderror
                             </div>
                             <button class="btn btn-info" type="submit">Cập nhật</button>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\UpdateAvatarProfileRequest;
 use App\Http\Requests\VendorRegisterRequest;
 use App\Mail\ActiveUserMail;
 use App\Promotion;
@@ -198,19 +199,29 @@ class UserController extends Controller
 
     public function avatarProfile($id) {
         $data = [
-            'vendor' => User::findOrFail($id)
+            'vendor' => User::findOrFail($id),
+            'categories' => Category::all(),
         ];
         return view('web.home.profile', $data);
     }
 
-  public function updateAvatarProfile(Request $request, $id)
+  public function updateAvatarProfile(UpdateAvatarProfileRequest $request, $id)
   {
       $data = $request->all();
-      $imageName = uniqid() . '.' . request()->avatar->getClientOriginalExtension();
-      request()->avatar->storeAs('public/images', $imageName);
-      $imageName = 'storage/images/' . $imageName;
-      $data['avatar'] = $imageName;
-      User::where('id', $id)->update(['avatar' => $data['avatar']]);
+//      $imageName = uniqid() . '.' . request()->avatar->getClientOriginalExtension();
+//      request()->avatar->storeAs('public/images', $imageName);
+//      $imageName = 'storage/images/' . $imageName;
+//      $data['avatar'] = $imageName;
+      if ($request->hasFile('avatar')) {
+          $imageName = uniqid() . '.' . request()->avatar->getClientOriginalExtension();
+          request()->avatar->storeAs('public/images', $imageName);
+          $imageName = 'storage/images/' . $imageName;
+          $data['avatar'] = $imageName;
+      } else {
+          unset($data['avatar']);
+      }
+//      dd($data);
+      User::findOrFail($id)->update($data);
       return redirect()->route('index');
   }
 

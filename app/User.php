@@ -25,6 +25,8 @@ class User extends Authenticatable
         'address',
         'role',
         'status',
+        'avatar',
+        'payment_instrument'
     ];
 
     CONST NORMAL = 1;

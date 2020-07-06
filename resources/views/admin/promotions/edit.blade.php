@@ -53,7 +53,7 @@
                 </div>
                 <div class="form-group">
                     <lable>Hình ảnh</lable>
-                    <input type="file" name="image" placeholder="Hình ảnh" class="form-control" value="{{ old('image') }}">
+                    <input type="file" name="image" placeholder="Hình ảnh" class="form-control" value="{{ old('image', $promotion->image) }}">
                     @error('image')
                     <strong class="text-danger"> {{ $message }}</strong>
                     @enderror
@@ -116,7 +116,38 @@
                             @endif
                     @endif
                 </div>
-                <button class="btn btn-success" type="submit">Thêm mới</button>
+                <div class="input-group d-flex flex-column">
+                    <lable>Loại khuyến mãi</lable>
+                    <div class="input-group">
+                        <div class="form-group mr-5">
+                            <select class="form-control" name="category_promotion_id">
+                                @foreach($statusPromotions as $statusPromotion)
+                                    <option value="{{ $statusPromotion->id }}" {{ old('category_promotion_id') == $statusPromotion->id ? 'selected' : '' }}>{{ $statusPromotion->name }}</option>
+                                @endforeach
+                            </select>
+                            @error('category_promotion_id')
+                            <strong class="text-danger"> {{ $message }}</strong>
+                            @enderror
+                        </div>
+                        <div class="d-flex flex-row">
+                            <lable class="mr-2 mt-1">Giảm</lable>
+                            <div class="form-group">
+                                <input type="text" name="discount" placeholder="giảm giá" class="form-control" value="{{ old('discount') }}">
+                                @error('discount')
+                                <strong class="text-danger"> {{ $message }}</strong>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <lable>Ưu tiên</lable>
+                    <input type="text" name="priority" placeholder="Ưu tiên" class="form-control" value="{{ old('priority') }}">
+                    @error('priority')
+                    <strong class="text-danger"> {{ $message }}</strong>
+                    @enderror
+                </div>
+                <button class="btn btn-success" type="submit">Cập nhật</button>
             </form>
         </div>
     </div>

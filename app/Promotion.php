@@ -24,6 +24,8 @@ class Promotion extends Model
         'status_use',
         'discount',
         'priority',
+        'address',
+        'payment_instrument',
     ];
 
     CONST PENDING = 'c';
@@ -46,6 +48,13 @@ class Promotion extends Model
     CONST PRIORITY = [
         self::AC_PRIORITY => 'Ưu tiên',
         self::IN_PRIORITY => 'Bình thường',
+    ];
+
+    CONST VI_DIEN_TU = 0;
+    CONST THE_NGAN_HANG = 1;
+    CONST PAYMENT_INSTRUMENT = [
+        self::VI_DIEN_TU => 'Ví điện tử',
+        self::THE_NGAN_HANG => 'Thẻ ngân hàng',
     ];
 
     public function promotionImages()

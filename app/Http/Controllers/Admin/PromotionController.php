@@ -100,6 +100,7 @@ class PromotionController extends Controller
             'promotion' => Promotion::findOrFail($id),
             'categories' => Category::all(),
             'users' => User::all(),
+            'statusPromotions' => StatusPromotion::all(),
         ];
         return view('admin.promotions.edit', $data);
     }
