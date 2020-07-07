@@ -26,6 +26,7 @@ class User extends Authenticatable
         'role',
         'status',
         'avatar',
+        'active_code',
         'payment_instrument'
     ];
 

@@ -15,10 +15,21 @@
         <td style="text-align: center; padding-bottom: 20px;">
             <p>Địa chỉ email của bạn {{ $user->email }}đã tạo thành công tài khoản trên trang {{ config('app.url') }}</p>
             <p>Để kích hoạt tài khoản, vui lòng click vào nút "Kích hoạt" bên dưới</p>
-            <form method="POST" action="{{ $url }}">
-                @csrf
-                <button class="btn btn-success" type="submit">Kích hoạt</button>
-            </form>
+            <a
+                target="_blank"
+                style="
+                    background-color: #4CAF50;
+                    border: none;
+                    color: white;
+                    padding: 6px 20px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    text-decoration: none;"
+                href="{{ $url }}">
+                Kích hoạt
+            </a>
         </td>
     </tr>
     </tbody>

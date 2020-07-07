@@ -8,5 +8,8 @@ return [
     ],
     'destroy' => [
         'success' => 'Xóa thành công',
+    ],
+    'forgot_password' => [
+        'email_does_not_exist' => 'Email khong ton tai',
     ]
 ];

@@ -5,7 +5,7 @@
                 <div class="input-search mb-4">
                     <div class="row">
                         <div class="col-12">
-                            <input name="search" class="form-control" placeholder="Tìm kiếm">
+                            <input name="search" class="form-control" placeholder="Tìm kiếm theo keyword" value="{{ request()->search }}">
                         </div>
                     </div>
                 </div>
@@ -15,21 +15,23 @@
                             <select class="form-control" name="category">
                                 @foreach($categories as $category)
                                     <option value="" disabled selected hidden>Thể loại</option>
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    <option value="{{ $category->id }}" {{ request()->category == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="col-4">
-                            <select class="form-control">
-                                <option value="1">Ví điện tử</option>
-                                <option class="2">Thẻ ngân hàng</option>
+                            <select class="form-control" name="payment_instrument">
+                                @foreach(\App\Promotion::PAYMENT_INSTRUMENT as $key => $value)
+                                    <option value="" disabled selected hidden>Phương thức thanh toán</option>
+                                    <option value="{{ $key }}" {{ request()->payment_instrument == $key ? 'selected' : '' }}>{{ $value }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="col-4">
-                            <select class="form-control">
-                                <option value="1">Địa điểm</option>
+                            <select class="form-control" name="address">
+                                <option value="" disabled selected hidden>Địa điểm</option>
                                 <option class="1">Hà Nội</option>
-                                <option class="1">Hồ Chí Minh</option>
+                                <option class="2">Hồ Chí Minh</option>
                             </select>
                         </div>
                     </div>

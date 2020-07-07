@@ -18,7 +18,7 @@ class CategoryController extends Controller
     public function index()
     {
         $data = [
-            'promotions' => Promotion::all(),
+            'promotions' => Promotion::where('status', Promotion::PUBLISH)->get(),
             'categories' => Category::all(),
             'statusPromotions' => StatusPromotion::all(),
         ];
@@ -98,7 +98,8 @@ class CategoryController extends Controller
     public function showCategory($id)
     {
         $data = [
-            'promotions' => Promotion::where('category_id', $id)->get(),
+            'promotions' => Promotion::where('status', Promotion::PUBLISH)->where('category_id', $id)
+                ->get(),
             'categories' => Category::all(),
             'statusPromotions' => StatusPromotion::all(),
         ];
@@ -109,8 +110,9 @@ class CategoryController extends Controller
     {
         $began_at = Carbon::parse($request->time_began)->format('Y-m-d');
         $finished_at = Carbon::parse($request->time_finished)->format('Y-m-d');
-        $promotions =  Promotion::searchByKeyWord($request->search)->searchByCategory($request->category)
-            ->searchByTime($request)->get();
+        $promotions =  Promotion::where('status', Promotion::PUBLISH)->searchByKeyWord($request->search)->searchByCategory($request->category)
+            ->searchByTime($request)
+            ->searchByAddress($request->address)->get();
 //        $time_began = Promotion::whereDate('began_at', '>=',  $began_at)
 //            ->WhereDate('finished_at', '<=',  $finished_at)->get();
 //        dd($promotions);

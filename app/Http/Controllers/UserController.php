@@ -126,6 +126,7 @@ class UserController extends Controller
             'gender' => $request->gender,
             'phone' => $request->phone,
             'address' => $request->address,
+            'active_code' => str_random(40),
             'status' => User::IN_ACTIVE,
         ]);
         Mail::to($email)->send(new ActiveUserMail($user, $url));
@@ -143,6 +144,7 @@ class UserController extends Controller
             'role' => User::VENDOR,
             'name' => $request->name,
             'phone' => $request->phone,
+            'active_code' => str_random(40),
             'status' => User::IN_ACTIVE,
         ]);
 //        dd($user);
@@ -227,13 +229,14 @@ class UserController extends Controller
 
   public function activeUser()
   {
-      dd(\request()->email);
       $user = User::where('email', request()->email)
+          ->where('active_code', request()->active_code)
           ->where('status', User::IN_ACTIVE)
           ->first();
       if ($user) {
           $user->update([
               'status' => User::ACTIVE,
+              'active_code' => null,
           ]);
           request()->session()->put('active_account', 'Success');
       }

@@ -30,9 +30,15 @@ class ActiveUserMail extends Mailable
      */
     public function build()
     {
-        $user = $this->user;
-        $url = $this->url;
-        return $this->subject('Chào mừng bạn đến với Hệ thống tiêu dùng thông minh')
-            ->view('web.emails.active_user', compact('user', 'url'));
+//        $user = $this->user;
+//        $url = $this->url;
+        $data = [
+            'url' => config('app.url')
+                .'/active-user?email='.$this->user->email
+                .'&active_code='.$this->user->active_code,
+            'user' => $this->user,
+        ];
+        return $this->subject('Chào mừng bạn đến với Hệ thống')
+            ->view('web.emails.active_user', $data);
     }
 }

@@ -1,9 +1,9 @@
-<div class="modal fade" id="modalErrorSendEmail" role="dialog">
+<div class="modal fade" id="activeAccount" role="dialog">
     <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
         <div class="modal-content">
             <div class="modal-body">
                 <p class="message">
-                    {{ __('Tài khoản không đúng') }}
+                    {{ $message ?? '' }}
                 </p>
             </div>
             <div class="modal-footer">
@@ -12,4 +12,5 @@
         </div>
     </div>
 </div>
+
 

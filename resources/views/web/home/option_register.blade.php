@@ -12,6 +12,7 @@
             @include('modals.register')
             @include('modals.vendor_register')
             @include('modals.send_error')
+            @include('modals.active')
             <input type="hidden" id="registerPortal" value="{{ route('register_portal') }}">
             <input type="hidden" id="vendorRegisterPortal" value="{{ route('vendor_register_portal') }}">
             <input type="hidden" id="activeCodeUrl" value="{{ route('active_user') }}">
@@ -37,7 +38,7 @@
         {
             let email = $('#emailRegister').val();
             let password = $('#passwordRegister').val();
-            let passwordConfirm = $('#passwordConfirmRegister').val();
+            let confirmPassword = $('#confirmPasswordRegister').val();
             let birthday = $('#birthdayRegister').val();
             let phone = $('#phoneRegister').val();
             let address = $('#addressRegister').val();
@@ -49,11 +50,7 @@
                 data: {
                     email: email,
                     password: password,
-                    passwordConfirm: passwordConfirm,
-                    birthday: birthday,
-                    phone: phone,
-                    address: address,
-                    gender: gender,
+                    confirmPassword: confirmPassword,
                     url: url,
                 },
                 success: function (data) {
@@ -63,8 +60,9 @@
                     }
                 },
                 error: function (response) {
+                    console.log(response)
                     $('#registerModal').modal('hide');
-                    $('#modalErrorSendEmail .message').text(response.responseJSON.errors.email);
+                    $('#modalErrorSendEmail .message').text(response.responseJSON.message);
                     $('#modalErrorSendEmail').modal('show');
                 }
             });

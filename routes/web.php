@@ -58,6 +58,7 @@ Route::get('goauth', 'gCalendarController@getAuth')->name('get_auth');
 
 Route::get('search', 'CategoryController@search')->name('search');
 Route::post('active-user', 'UserController@activeUser')->name('active_user');
+Route::get('active-user', 'UserController@activeUser')->name('active_user');
 Route::get('priority-promotion', 'CategoryController@listPriorityArticle')->name('priority');
 Route::get('newest-promotion', 'CategoryController@listNewestPromotion')->name('newest.promotion');
 Route::get('discount-promotion', 'CategoryController@listDiscountPromotion')->name('discount.promotion');

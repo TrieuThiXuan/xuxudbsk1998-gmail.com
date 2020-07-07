@@ -121,4 +121,22 @@ class Promotion extends Model
                 ->WhereDate('finished_at', '<=',  $finished_at);
         }
     }
+
+    public function scopeSearchByPay($query, $request)
+    {
+        $promtion = Promotion::all();
+        $vendor = User::where('payment_instrument', $request)->select('id')->get();
+        dd($vendor->toArray());
+        $promtion->whereIn('vendor_id', $vendor->id);
+        if(isset($request)) {
+            return $query->where('vendor_id', $request);
+        }
+    }
+
+    public function scopeSearchByAddress($query, $request)
+    {
+        if(isset($request)) {
+            return $query->where('address', 'like', '%' . $request . '%');
+        }
+    }
 }
