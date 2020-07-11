@@ -44,7 +44,10 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <button class="btn btn-info" type="submit">Tìm kiếm</button>
+                            <div class="col-md-3">
+                                <button class="btn btn-info" type="submit">Tìm kiếm</button>
+                                <a class="btn btn-warning" href="{{ route('promotions.approve.all') }}">Duyệt tất cả</a>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -79,6 +82,9 @@
                         </td>
                         <td><img src="{{ asset("$promotion_normal->image") }}" class="w-100"></td>
                         <td class="d-flex flex-row">
+                            @if($promotion_normal->status == \App\Promotion::PENDING)
+                            <a class="btn btn-warning mr-2" href="{{ route('promotions.approve', $promotion_normal->id) }}">Duyệt</a>
+                            @endif
                             <a class="btn btn-success mr-2" href="{{ route('promotions.edit', $promotion_normal->id) }}">Sửa</a>
                             <form action="{{ route('promotions.destroy', $promotion_normal->id) }}" method="POST">
                                 @method('DELETE')
@@ -125,6 +131,7 @@
                             </td>
                             <td><img src="{{ asset("$promotion_vendor->image") }}" class="w-100"></td>
                             <td class="d-flex flex-row">
+                                <a class="btn btn-warning mr-2" href="{{ route('promotions.approve', $promotion_vendor->id) }}">Duyệt</a>
                                 <a class="btn btn-success mr-2" href="{{ route('promotions.edit', $promotion_vendor->id) }}">Sửa</a>
                                 <form action="{{ route('promotions.destroy', $promotion_vendor->id) }}" method="POST">
                                     @method('DELETE')
@@ -137,7 +144,7 @@
                             </tbody>
                         </table>
             <div class="float-right mt-2">
-                {{ $promotions_vendor->appends($_GET)->links() }}
+{{--                {{ $promotions_vendor->appends($_GET)->links() }}--}}
             </div>
     </div>
                     @endif

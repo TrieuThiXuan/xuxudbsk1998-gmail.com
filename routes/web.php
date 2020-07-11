@@ -32,6 +32,8 @@ Route::prefix('admin')->group(function () {
         Route::get('category_promotion/{category_promotion}/edit', 'CategoryPromotionController@edit')->name('category_promotion.edit');
         Route::patch('category_promotion/{category_promotion}', 'CategoryPromotionController@update')->name('category_promotion.update');
         Route::delete('category_promotion/{category_promotion}', 'CategoryPromotionController@destroy')->name('category_promotion.destroy');
+        Route::get('approve_promotion/{approve_promotion}', 'PromotionController@approvePromotion')->name('promotions.approve');
+        Route::get('all_approve_promotion', 'PromotionController@approveAllPromotion')->name('promotions.approve.all');
     });
 });
 Route::get('index', 'UserController@index')->name('index');

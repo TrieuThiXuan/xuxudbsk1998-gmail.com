@@ -178,4 +178,23 @@ class PromotionController extends Controller
         ];
         return view('admin.report.report', $data);
     }
+
+    public function approvePromotion($id)
+    {
+        $promotion = Promotion::findOrFail($id);
+//        dd($promotion);
+        if($promotion->status != Promotion::APPROVE) {
+            $promotion->update(['status' => Promotion::APPROVE]);
+        }
+        return redirect()->route('promotions.index')->with('success', __('message.update.approve'));
+    }
+    public function approveAllPromotion()
+    {
+        $promotion = Promotion::where('status', Promotion::PENDING)->update(['status' => Promotion::APPROVE]);
+//        dd($promotion);
+//        if($promotion->status == Promotion::PENDING) {
+//            $promotion->update(['status' => Promotion::APPROVE]);
+//        }
+        return redirect()->route('promotions.index')->with('success', __('message.update.all_approve'));
+    }
 }

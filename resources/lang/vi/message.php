@@ -11,5 +11,9 @@ return [
     ],
     'user_register' => [
         'success' => 'Vui lòng kích hoạt email',
+    ],
+    'update' => [
+        'approve' => 'Đã duyệt bài viết',
+        'all_approve' => 'Đã duyệt tất cả bài viết',
     ]
 ];
